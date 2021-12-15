@@ -25,11 +25,14 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Cocoa/Cocoa.h>
-#import <OpenEmuBase/OEGameCore.h>
+#import <Foundation/Foundation.h>
+#import <PVSupport/PVSupport.h>
+//@import Foundation;
+//@import PVSupport;
 
 @class OERingBuffer;
 
-OE_EXPORTED_CLASS
-@interface OdysseyGameCore : OEGameCore
+__attribute__((visibility("default")))
+@interface OdysseyGameCore : PVEmulatorCore <PVOdyssey2SystemResponderClient>
+
 @end
