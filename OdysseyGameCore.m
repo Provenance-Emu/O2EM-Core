@@ -85,7 +85,7 @@ static long filesize(FILE *stream){
     return length;
 }
 
-static void load_bios(const char *biosname){
+static int load_bios(const char *biosname){
 	FILE *fn;
 	static char s[MAXC+10];
 	unsigned long crc;
@@ -111,22 +111,22 @@ static void load_bios(const char *biosname){
 	
     if (!fn) {
 		fprintf(stderr,"Error loading bios ROM (%s)\n",s);
-		exit(EXIT_FAILURE);
+		return EXIT_FAILURE;
 	}
  	if (fread(rom_table[0],1024,1,fn) != 1) {
  		fprintf(stderr,"Error loading bios ROM %s\n",odyssey2);
- 		exit(EXIT_FAILURE);
+        return EXIT_FAILURE;
  	}
     
     strcpy(s,biosname);
     fn = fopen(biosname,"rb");
     if (!fn) {
 		fprintf(stderr,"Error loading bios ROM (%s)\n",s);
-		exit(EXIT_FAILURE);
+        return EXIT_FAILURE;
 	}
  	if (fread(rom_table[0],1024,1,fn) != 1) {
  		fprintf(stderr,"Error loading bios ROM %s\n",odyssey2);
- 		exit(EXIT_FAILURE);
+        return EXIT_FAILURE;
  	}
     fclose(fn);
 	for (i=1; i<8; i++) memcpy(rom_table[i],rom_table[0],1024);
@@ -153,9 +153,10 @@ static void load_bios(const char *biosname){
 		app_data.vpp = 0;
 		app_data.bios = ROM_UNKNOWN;
 	}
+    return EXIT_SUCCESS;
 }
 
-static void load_cart(const char *file){
+static int load_cart(const char *file){
 	FILE *fn;
 	long l;
 	int i, nb;
@@ -167,20 +168,20 @@ static void load_cart(const char *file){
     
 	if (((app_data.crc == 0x975AB8DA) || (app_data.crc == 0xE246A812)) && (!app_data.debug)) {
 		fprintf(stderr,"Error: file %s is an incomplete ROM dump\n",file_v);
-		exit(EXIT_FAILURE);
+        return EXIT_FAILURE;
 	}
 	
     fn=fopen(file,"rb");
 	if (!fn) {
 		fprintf(stderr,"Error loading %s\n",file_v);
-		exit(EXIT_FAILURE);
+        return EXIT_FAILURE;
 	}
 	printf("Loading: \"%s\"  Size: ",file_v);
 	l = filesize(fn);
 	
     if ((l % 1024) != 0) {
 		fprintf(stderr,"Error: file %s is an invalid ROM dump\n",file_v);
-		exit(EXIT_FAILURE);
+        return EXIT_FAILURE;
 	}
     
     /* special MegaCART design by Soeren Gust */
@@ -190,11 +191,11 @@ static void load_cart(const char *file){
 		megarom = malloc(1048576);
 		if (megarom == NULL) {
 			fprintf(stderr, "Out of memory loading %s\n", file);
-			exit(EXIT_FAILURE);
+            return EXIT_FAILURE;
         }
 		if (fread(megarom, l, 1, fn) != 1) {
 			fprintf(stderr,"Error loading %s\n",file);
-			exit(EXIT_FAILURE);
+            return EXIT_FAILURE;
 		}
 		
         /* mirror shorter files into full megabyte */
@@ -215,7 +216,7 @@ static void load_cart(const char *file){
 		for (i=nb-1; i>=0; i--) {
 			if (fread(&rom_table[i][1024],3072,1,fn) != 1) {
 				fprintf(stderr,"Error loading %s\n",file);
-				exit(EXIT_FAILURE);
+                return EXIT_FAILURE;
 			}
 		}
 		printf("%dK",nb*3);
@@ -228,11 +229,11 @@ static void load_cart(const char *file){
             
 			if (fread(&extROM[0], 1024,1,fn) != 1) {
 				fprintf(stderr,"Error loading %s\n",file);
-				exit(EXIT_FAILURE);
+                return EXIT_FAILURE;
 			}
 			if (fread(&rom_table[0][1024],3072,1,fn) != 1) {
 				fprintf(stderr,"Error loading %s\n",file);
-				exit(EXIT_FAILURE);
+                return EXIT_FAILURE;
 			}
 			printf("3K EXROM");
             
@@ -241,7 +242,7 @@ static void load_cart(const char *file){
 			for (i=nb-1; i>=0; i--) {
 				if (fread(&rom_table[i][1024],2048,1,fn) != 1) {
 					fprintf(stderr,"Error loading %s\n",file);
-					exit(EXIT_FAILURE);
+                    return EXIT_FAILURE;
 				}
 				memcpy(&rom_table[i][3072],&rom_table[i][2048],1024); /* simulate missing A10 */
 			}
@@ -263,6 +264,8 @@ static void load_cart(const char *file){
     if ((rom_table[nb-1][1024+12]=='O') && (rom_table[nb-1][1024+13]=='P') && (rom_table[nb-1][1024+14]=='N') && (rom_table[nb-1][1024+15]=='B')) app_data.openb=1;
 	
     printf("  CRC: %08lX\n",app_data.crc);
+    
+    return EXIT_SUCCESS;
 }
 
 //int suck_bios()
@@ -395,8 +398,15 @@ OdysseyGameCore *current;
 }
 
 #pragma mark Execution
+-(NSString*)systemIdentifier {
+    return @"com.provenance.odyssey2";
+}
 
-- (BOOL)loadFileAtPath:(NSString *)path
+-(NSString*)biosDirectoryPath {
+    return self.BIOSPath;
+}
+
+- (BOOL)loadFileAtPath:(NSString *)path error:(NSError *__autoreleasing *)error
 {
     RLOOP=1;
     
@@ -455,9 +465,44 @@ OdysseyGameCore *current;
     //suck_roms();
     
     NSString *biosROM = [[self BIOSPath] stringByAppendingPathComponent:@"o2rom.bin"];
-    load_bios([biosROM fileSystemRepresentation]);
+    int status = EXIT_SUCCESS;
+    status = load_bios([biosROM fileSystemRepresentation]);
+    if (status == EXIT_FAILURE) {
+        ELOG(@"Failed to open file");
+        if(error != NULL) {
+            NSDictionary *userInfo = @{
+                NSLocalizedDescriptionKey: @"Failed to load bios.",
+                NSLocalizedFailureReasonErrorKey: @"Odyssey2 failed to load BIOS.",
+                NSLocalizedRecoverySuggestionErrorKey: @"Check that file isn't corrupt and in format Odyssey2 supports."
+            };
+
+            NSError *newError = [NSError errorWithDomain:PVEmulatorCoreErrorDomain
+                                                    code:PVEmulatorCoreErrorCodeCouldNotLoadRom
+                                                userInfo:userInfo];
+
+            *error = newError;
+        }
+        return NO;
+    }
     
-	load_cart([path fileSystemRepresentation]);
+	status = load_cart([path fileSystemRepresentation]);
+    if (status == EXIT_FAILURE) {
+        ELOG(@"Failed to open file");
+        if(error != NULL) {
+            NSDictionary *userInfo = @{
+                NSLocalizedDescriptionKey: @"Failed to load rom.",
+                NSLocalizedFailureReasonErrorKey: @"Odyssey2 failed to load rom.",
+                NSLocalizedRecoverySuggestionErrorKey: @"Check that file isn't corrupt and in format Odyssey2 supports."
+            };
+
+            NSError *newError = [NSError errorWithDomain:PVEmulatorCoreErrorDomain
+                                                    code:PVEmulatorCoreErrorCodeCouldNotLoadRom
+                                                userInfo:userInfo];
+
+            *error = newError;
+        }
+        return NO;
+    }
 	//if (app_data.voice) load_voice_samples(path2);
     
 	init_display();
@@ -471,22 +516,31 @@ OdysseyGameCore *current;
     return YES;
 }
 
-- (void)executeFrame
-{
+- (void)executeFrameSkippingFrame: (BOOL) skip {
+//    if (self.controller1 || self.controller2) {
+//        [self pollControllers];
+//    }
     //run();
     cpu_exec();
 
     int len = evblclk == EVBLCLK_NTSC ? 44100/60 : 44100/50;
 
     // Convert 8u to 16s
-    for(int i = 0; i < len; i++)
-    {
-        int16_t sample16 = (soundBuffer[i] - 128 ) << 8;
+    if(!skip) {
+        for(int i = 0; i < len; i++)
+        {
+            int16_t sample16 = (soundBuffer[i] - 128 ) << 8;
 
-        [[current ringBufferAtIndex:0] write:&sample16 maxLength:2];
+            [[current ringBufferAtIndex:0] write:&sample16 maxLength:2];
+        }
     }
 
     RLOOP=1;
+}
+
+- (void)executeFrame
+{
+    [self executeFrameSkippingFrame:NO];
 }
 
 - (void)resetEmulation
@@ -495,7 +549,17 @@ OdysseyGameCore *current;
     init_roms();
     init_vpp();
     clearscr();
+    if (mbmp) {
+        free(mbmp);
+        mbmp = nil;
+    }
 }
+
+//- (void)stopEmulation
+//{
+//    RLOOP = 0;
+//    [super stopEmulation];
+//}
 
 #pragma mark Video
 
@@ -543,7 +607,20 @@ OdysseyGameCore *current;
 
 - (NSTimeInterval)frameInterval
 {
-    return 60;
+    return evblclk == EVBLCLK_NTSC ? 60 : 50;
+}
+
+- (const void *)videoBuffer {
+    return [self getVideoBufferWithHint:nil];
+}
+
+- (GLenum)internalPixelFormat
+{
+    return GL_RGB;
+}
+
+- (BOOL)isDoubleBuffered {
+    return false;
 }
 
 #pragma mark Audio
@@ -581,9 +658,9 @@ OdysseyGameCore *current;
         key[[virtualCode intValue]] = 0;
 }
 
-- (oneway void)didPushOdyssey2Button:(PVOdyssey2Button)button forPlayer:(NSUInteger)player;
+- (oneway void)didPushOdyssey2Button:(PVOdyssey2Button)button forPlayer:(NSInteger)player;
 {
-    player--;
+//    player--;
     if (button == PVOdyssey2ButtonUp)
         joystick_data[player][0] = 1;
     else if (button == PVOdyssey2ButtonDown)
@@ -596,9 +673,9 @@ OdysseyGameCore *current;
         joystick_data[player][4] = 1;
 }
 
-- (oneway void)didReleaseOdyssey2Button:(PVOdyssey2Button)button forPlayer:(NSUInteger)player;
+- (oneway void)didReleaseOdyssey2Button:(PVOdyssey2Button)button forPlayer:(NSInteger)player;
 {
-    player--;
+//    player--;
     if (button == PVOdyssey2ButtonUp)
         joystick_data[player][0] = 0;
     else if (button == PVOdyssey2ButtonDown)
