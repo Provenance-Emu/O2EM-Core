@@ -26,7 +26,6 @@
 		B306E10C2769F70A001DC52E /* OdysseyGameCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 941DFB2615B6425200C6552F /* OdysseyGameCore.m */; };
 		B306E10D2769F710001DC52E /* OdysseyGameCore.h in Headers */ = {isa = PBXBuildFile; fileRef = B5008DAD0E8BFB3E005AECAF /* OdysseyGameCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B306E10F2769F71F001DC52E /* PVSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B306E10E2769F71F001DC52E /* PVSupport.framework */; };
-		B306E1102769F71F001DC52E /* PVSupport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B306E10E2769F71F001DC52E /* PVSupport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B306E1122769F730001DC52E /* libO2EM-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B306E0D72769F6AB001DC52E /* libO2EM-iOS.a */; };
 		B306E1172769F8AC001DC52E /* vpp.c in Sources */ = {isa = PBXBuildFile; fileRef = 94AD8A72199AD89200E6520F /* vpp.c */; };
 		B306E1182769F8AC001DC52E /* audio.c in Sources */ = {isa = PBXBuildFile; fileRef = 94AD8A47199AD89200E6520F /* audio.c */; };
@@ -78,17 +77,6 @@
 			dstSubfolderSpec = 16;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B306E1112769F71F001DC52E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				B306E1102769F71F001DC52E /* PVSupport.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B306E1272769F8AC001DC52E /* CopyFiles */ = {
@@ -393,7 +381,6 @@
 				B306E1012769F704001DC52E /* Sources */,
 				B306E1022769F704001DC52E /* Frameworks */,
 				B306E1032769F704001DC52E /* Resources */,
-				B306E1112769F71F001DC52E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -806,7 +793,8 @@
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/allegrowrapper\"";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -820,7 +808,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -868,7 +856,8 @@
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/allegrowrapper\"";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -882,7 +871,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
