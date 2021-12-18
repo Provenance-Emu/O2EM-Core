@@ -25,12 +25,10 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Foundation/Foundation.h>
-#import <PVSupport/PVSupport.h>
-//@import Foundation;
-//@import PVSupport;
-
-@class OERingBuffer;
+//#import <Foundation/Foundation.h>
+//#import <PVSupport/PVSupport.h>
+@import Foundation;
+@import PVSupport;
 
 __attribute__((visibility("default")))
 @interface OdysseyGameCore : PVEmulatorCore <PVOdyssey2SystemResponderClient>
