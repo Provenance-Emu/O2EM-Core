@@ -17,7 +17,7 @@
                BlueprintIdentifier = "B306E12C2769F8D9001DC52E"
                BuildableName = "PVO2EM.framework"
                BlueprintName = "PVO2EM-tvOS"
-               ReferencedContainer = "container:O2EM.xcodeproj">
+               ReferencedContainer = "container:PVO2EM.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -53,7 +53,7 @@
             BlueprintIdentifier = "B306E12C2769F8D9001DC52E"
             BuildableName = "PVO2EM.framework"
             BlueprintName = "PVO2EM-tvOS"
-            ReferencedContainer = "container:O2EM.xcodeproj">
+            ReferencedContainer = "container:PVO2EM.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
