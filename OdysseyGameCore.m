@@ -1,33 +1,9 @@
 /*
- Copyright (c) 2014, OpenEmu Team
-
-
- Redistribution and use in source and binary forms, with or without
- modification, are permitted provided that the following conditions are met:
-     * Redistributions of source code must retain the above copyright
-       notice, this list of conditions and the following disclaimer.
-     * Redistributions in binary form must reproduce the above copyright
-       notice, this list of conditions and the following disclaimer in the
-       documentation and/or other materials provided with the distribution.
-     * Neither the name of the OpenEmu Team nor the
-       names of its contributors may be used to endorse or promote products
-       derived from this software without specific prior written permission.
-
- THIS SOFTWARE IS PROVIDED BY OpenEmu Team ''AS IS'' AND ANY
- EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- DISCLAIMED. IN NO EVENT SHALL OpenEmu Team BE LIABLE FOR ANY
- DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
- ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ Copyright (c) 2022, Provenance EMU Team
  */
 
 #import "OdysseyGameCore.h"
-//#import "OEOdyssey2SystemResponderClient.h"
-
+#import <PVSupport/PVSupport-Swift.h>
 
 #if !TARGET_OS_MACCATALYST
 #import <OpenGLES/gltypes.h>
@@ -38,6 +14,8 @@
 @import OpenGL;
 @import GLUT;
 #endif
+
+#import <UIKit/UIKeyConstants.h>
 
 #include "crc32.h"
 #include "audio.h"
@@ -58,20 +36,19 @@
 
 @interface OdysseyGameCore () <PVOdyssey2SystemResponderClient>
 {
-    NSDictionary *virtualPhysicalKeyMap;
 }
 @end
 
 //uint16_t mbmp[EMUWIDTH * EMUHEIGHT];
 //unsigned short int mbmp[TEX_WIDTH * TEX_HEIGHT];
 uint16_t *mbmp;
-//short signed int SNDBUF[1024*2];
+short signed int SNDBUF[1024*2];
 uint8_t soundBuffer[1056];
 int SND;
 int RLOOP=0;
-int joystick_data[2][5]={{0,0,0,0,0},{0,0,0,0,0}};
 
 void update_joy(void){
+
 }
 
 int contax, o2flag, g74flag, c52flag, jopflag, helpflag;
@@ -333,80 +310,154 @@ static int load_cart(const char *file){
 //    return(0);
 //}
 
-OdysseyGameCore *current;
 @implementation OdysseyGameCore
 
-- (id)init
-{
-    if((self = [super init]))
-    {
-        current = self;
-        
-//        virtualPhysicalKeyMap = @{ @(kHIDUsage_Keyboard0) : @(RETROK_0),
-//                                   @(kHIDUsage_Keyboard1) : @(RETROK_1),
-//                                   @(kHIDUsage_Keyboard2) : @(RETROK_2),
-//                                   @(kHIDUsage_Keyboard3) : @(RETROK_3),
-//                                   @(kHIDUsage_Keyboard4) : @(RETROK_4),
-//                                   @(kHIDUsage_Keyboard5) : @(RETROK_5),
-//                                   @(kHIDUsage_Keyboard6) : @(RETROK_6),
-//                                   @(kHIDUsage_Keyboard7) : @(RETROK_7),
-//                                   @(kHIDUsage_Keyboard8) : @(RETROK_8),
-//                                   @(kHIDUsage_Keyboard9) : @(RETROK_9),
-//                                   @(kHIDUsage_KeyboardA) : @(RETROK_a),
-//                                   @(kHIDUsage_KeyboardB) : @(RETROK_b),
-//                                   @(kHIDUsage_KeyboardC) : @(RETROK_c),
-//                                   @(kHIDUsage_KeyboardD) : @(RETROK_d),
-//                                   @(kHIDUsage_KeyboardE) : @(RETROK_e),
-//                                   @(kHIDUsage_KeyboardF) : @(RETROK_f),
-//                                   @(kHIDUsage_KeyboardG) : @(RETROK_g),
-//                                   @(kHIDUsage_KeyboardH) : @(RETROK_h),
-//                                   @(kHIDUsage_KeyboardI) : @(RETROK_i),
-//                                   @(kHIDUsage_KeyboardJ) : @(RETROK_j),
-//                                   @(kHIDUsage_KeyboardK) : @(RETROK_k),
-//                                   @(kHIDUsage_KeyboardL) : @(RETROK_l),
-//                                   @(kHIDUsage_KeyboardM) : @(RETROK_m),
-//                                   @(kHIDUsage_KeyboardN) : @(RETROK_n),
-//                                   @(kHIDUsage_KeyboardO) : @(RETROK_o),
-//                                   @(kHIDUsage_KeyboardP) : @(RETROK_p),
-//                                   @(kHIDUsage_KeyboardQ) : @(RETROK_q),
-//                                   @(kHIDUsage_KeyboardR) : @(RETROK_r),
-//                                   @(kHIDUsage_KeyboardS) : @(RETROK_s),
-//                                   @(kHIDUsage_KeyboardT) : @(RETROK_t),
-//                                   @(kHIDUsage_KeyboardU) : @(RETROK_u),
-//                                   @(kHIDUsage_KeyboardV) : @(RETROK_v),
-//                                   @(kHIDUsage_KeyboardW) : @(RETROK_w),
-//                                   @(kHIDUsage_KeyboardX) : @(RETROK_x),
-//                                   @(kHIDUsage_KeyboardY) : @(RETROK_y),
-//                                   @(kHIDUsage_KeyboardZ) : @(RETROK_z),
-//                                   @(kHIDUsage_KeyboardSpacebar) : @(RETROK_SPACE),
-//                                   @(kHIDUsage_KeyboardSlash) : @(RETROK_QUESTION),
-//                                   @(kHIDUsage_KeyboardPeriod) : @(RETROK_PERIOD),
-//                                   @(kHIDUsage_KeyboardDeleteOrBackspace) : @(RETROK_END),
-//                                   @(kHIDUsage_KeyboardReturnOrEnter) : @(RETROK_RETURN),
-//                                   @(kHIDUsage_KeyboardHyphen) : @(RETROK_MINUS),
-//                                   //@(kHIDUsage_KeyboardSpacebar) : @(RETROK_ASTERISK),
-//                                   //@(kHIDUsage_KeyboardSpacebar) : @(RETROK_SLASH),
-//                                   //@(kHIDUsage_KeyboardSpacebar) : @(RETROK_EQUALS),
-//                                   //@(kHIDUsage_KeyboardSpacebar) : @(RETROK_PLUS),
-//                                };
+- (instancetype)init {
+    if((self = [super init])) {
+        virtualPhysicalKeyMap = @{
+            @(UIKeyboardHIDUsageKeypad0) : @(RETROK_KP0),
+            @(UIKeyboardHIDUsageKeypad1) : @(RETROK_KP1),
+            @(UIKeyboardHIDUsageKeypad2) : @(RETROK_KP2),
+            @(UIKeyboardHIDUsageKeypad3) : @(RETROK_KP3),
+            @(UIKeyboardHIDUsageKeypad4) : @(RETROK_KP4),
+            @(UIKeyboardHIDUsageKeypad5) : @(RETROK_KP5),
+            @(UIKeyboardHIDUsageKeypad6) : @(RETROK_KP6),
+            @(UIKeyboardHIDUsageKeypad7) : @(RETROK_KP7),
+            @(UIKeyboardHIDUsageKeypad8) : @(RETROK_KP8),
+            @(UIKeyboardHIDUsageKeypad9) : @(RETROK_KP9),
+
+            @(UIKeyboardHIDUsageKeyboard0) : @(RETROK_0),
+            @(UIKeyboardHIDUsageKeyboard1) : @(RETROK_1),
+            @(UIKeyboardHIDUsageKeyboard2) : @(RETROK_2),
+            @(UIKeyboardHIDUsageKeyboard3) : @(RETROK_3),
+            @(UIKeyboardHIDUsageKeyboard4) : @(RETROK_4),
+            @(UIKeyboardHIDUsageKeyboard5) : @(RETROK_5),
+            @(UIKeyboardHIDUsageKeyboard6) : @(RETROK_6),
+            @(UIKeyboardHIDUsageKeyboard7) : @(RETROK_7),
+            @(UIKeyboardHIDUsageKeyboard8) : @(RETROK_8),
+            @(UIKeyboardHIDUsageKeyboard9) : @(RETROK_9),
+            
+            @(UIKeyboardHIDUsageKeyboardA) : @(RETROK_a),
+            @(UIKeyboardHIDUsageKeyboardB) : @(RETROK_b),
+            @(UIKeyboardHIDUsageKeyboardC) : @(RETROK_c),
+            @(UIKeyboardHIDUsageKeyboardD) : @(RETROK_d),
+            @(UIKeyboardHIDUsageKeyboardE) : @(RETROK_e),
+            @(UIKeyboardHIDUsageKeyboardF) : @(RETROK_f),
+            @(UIKeyboardHIDUsageKeyboardG) : @(RETROK_g),
+            @(UIKeyboardHIDUsageKeyboardH) : @(RETROK_h),
+            @(UIKeyboardHIDUsageKeyboardI) : @(RETROK_i),
+            @(UIKeyboardHIDUsageKeyboardJ) : @(RETROK_j),
+            @(UIKeyboardHIDUsageKeyboardK) : @(RETROK_k),
+            @(UIKeyboardHIDUsageKeyboardL) : @(RETROK_l),
+            @(UIKeyboardHIDUsageKeyboardM) : @(RETROK_m),
+            @(UIKeyboardHIDUsageKeyboardN) : @(RETROK_n),
+            @(UIKeyboardHIDUsageKeyboardO) : @(RETROK_o),
+            @(UIKeyboardHIDUsageKeyboardP) : @(RETROK_p),
+            @(UIKeyboardHIDUsageKeyboardQ) : @(RETROK_q),
+            @(UIKeyboardHIDUsageKeyboardR) : @(RETROK_r),
+            @(UIKeyboardHIDUsageKeyboardS) : @(RETROK_s),
+            @(UIKeyboardHIDUsageKeyboardT) : @(RETROK_t),
+            @(UIKeyboardHIDUsageKeyboardU) : @(RETROK_u),
+            @(UIKeyboardHIDUsageKeyboardV) : @(RETROK_v),
+            @(UIKeyboardHIDUsageKeyboardW) : @(RETROK_w),
+            @(UIKeyboardHIDUsageKeyboardX) : @(RETROK_x),
+            @(UIKeyboardHIDUsageKeyboardY) : @(RETROK_y),
+            @(UIKeyboardHIDUsageKeyboardZ) : @(RETROK_z),
+            
+            @(UIKeyboardHIDUsageKeypadAsterisk) : @(RETROK_KP_MULTIPLY),
+            @(UIKeyboardHIDUsageKeypadEnter) : @(RETROK_KP_ENTER),
+            @(UIKeyboardHIDUsageKeypadEqualSign) : @(RETROK_KP_EQUALS),
+            @(UIKeyboardHIDUsageKeypadPlus) : @(RETROK_KP_PLUS),
+            @(UIKeyboardHIDUsageKeypadHyphen) : @(RETROK_KP_MINUS),
+            @(UIKeyboardHIDUsageKeypadComma) : @(RETROK_COMMA),
+            @(UIKeyboardHIDUsageKeypadPeriod) : @(RETROK_KP_PERIOD),
+            @(UIKeyboardHIDUsageKeypadSlash) : @(RETROK_KP_DIVIDE),
+            
+            @(UIKeyboardHIDUsageKeyboardScrollLock) : @(RETROK_SCROLLOCK),
+            @(UIKeyboardHIDUsageKeyboardCapsLock) : @(RETROK_CAPSLOCK),
+            @(UIKeyboardHIDUsageKeypadNumLock) : @(RETROK_NUMLOCK),
+
+            @(UIKeyboardHIDUsageKeyboardSpacebar) : @(RETROK_SPACE),
+            @(UIKeyboardHIDUsageKeyboardDeleteOrBackspace) : @(RETROK_BACKSPACE),
+            @(UIKeyboardHIDUsageKeyboardGraveAccentAndTilde) : @(RETROK_QUOTE),
+            @(UIKeyboardHIDUsageKeyboardDeleteForward) : @(RETROK_DELETE),
+            @(UIKeyboardHIDUsageKeyboardTab) : @(RETROK_TAB),
+            @(UIKeyboardHIDUsageKeyboardPause) : @(RETROK_PAUSE),
+//            @(UIKeyboardHIDUsageKeyboardSlash) : @(RETROK_QUESTION),
+            @(UIKeyboardHIDUsageKeyboardPeriod) : @(RETROK_PERIOD),
+            @(UIKeyboardHIDUsageKeyboardReturnOrEnter) : @(RETROK_RETURN),
+            @(UIKeyboardHIDUsageKeyboardHyphen) : @(RETROK_MINUS),
+            @(UIKeyboardHIDUsageKeyboardSlash) : @(RETROK_SLASH),
+
+            @(UIKeyboardHIDUsageKeyboardOpenBracket) : @(RETROK_LEFTBRACKET),
+            @(UIKeyboardHIDUsageKeyboardBackslash) : @(RETROK_BACKSLASH),
+//            @(UIKeyboardHIDUsageKeyboardBackslash) : @(RETROK_BAR), // |
+            @(UIKeyboardHIDUsageKeyboardCloseBracket) : @(RETROK_RIGHTBRACKET),
+            @(UIKeyboardHIDUsageKeyboardQuote) : @(RETROK_QUOTEDBL),
+
+            @(UIKeyboardHIDUsageKeyboardLeftAlt) : @(RETROK_LALT),
+            @(UIKeyboardHIDUsageKeyboardLeftGUI) : @(RETROK_LMETA), // RETROK_LSUPER
+            @(UIKeyboardHIDUsageKeyboardLeftShift) : @(RETROK_LSHIFT),
+            @(UIKeyboardHIDUsageKeyboardLeftControl) : @(RETROK_LCTRL),
+
+            @(UIKeyboardHIDUsageKeyboardRightAlt) : @(RETROK_RALT),
+            @(UIKeyboardHIDUsageKeyboardRightGUI) : @(RETROK_RMETA),
+            @(UIKeyboardHIDUsageKeyboardRightShift) : @(RETROK_RSHIFT),
+            @(UIKeyboardHIDUsageKeyboardRightControl) : @(RETROK_RCTRL),
+            
+            @(UIKeyboardHIDUsageKeyboardLeftArrow) : @(RETROK_LEFT),
+            @(UIKeyboardHIDUsageKeyboardRightArrow) : @(RETROK_RIGHT),
+            @(UIKeyboardHIDUsageKeyboardUpArrow) : @(RETROK_UP),
+            @(UIKeyboardHIDUsageKeyboardDownArrow) : @(RETROK_DOWN),
+
+            @(UIKeyboardHIDUsageKeyboardF1) : @(RETROK_F1),
+            @(UIKeyboardHIDUsageKeyboardF2) : @(RETROK_F2),
+            @(UIKeyboardHIDUsageKeyboardF3) : @(RETROK_F3),
+            @(UIKeyboardHIDUsageKeyboardF4) : @(RETROK_F4),
+            @(UIKeyboardHIDUsageKeyboardF5) : @(RETROK_F5),
+            @(UIKeyboardHIDUsageKeyboardF6) : @(RETROK_F6),
+            @(UIKeyboardHIDUsageKeyboardF7) : @(RETROK_F7),
+            @(UIKeyboardHIDUsageKeyboardF8) : @(RETROK_F8),
+            @(UIKeyboardHIDUsageKeyboardF9) : @(RETROK_F9),
+            @(UIKeyboardHIDUsageKeyboardF10) : @(RETROK_F10),
+            @(UIKeyboardHIDUsageKeyboardF11) : @(RETROK_F11),
+            @(UIKeyboardHIDUsageKeyboardF12) : @(RETROK_F12),
+            @(UIKeyboardHIDUsageKeyboardF13) : @(RETROK_F13),
+            @(UIKeyboardHIDUsageKeyboardF14) : @(RETROK_F14),
+            @(UIKeyboardHIDUsageKeyboardF15) : @(RETROK_F15),
+            
+            @(UIKeyboardHIDUsageKeyboardHelp) : @(RETROK_HELP),
+            @(UIKeyboardHIDUsageKeyboardPrintScreen) : @(RETROK_PRINT),
+            
+            @(UIKeyboardHIDUsageKeyboardUndo) : @(RETROK_UNDO),
+            
+            @(UIKeyboardHIDUsageKeyboardPageUp) : @(RETROK_PAGEUP),
+            @(UIKeyboardHIDUsageKeyboardPageDown) : @(RETROK_PAGEDOWN),
+            @(UIKeyboardHIDUsageKeyboardInsert) : @(RETROK_INSERT),
+            @(UIKeyboardHIDUsageKeyboardHome) : @(RETROK_HOME),
+            @(UIKeyboardHIDUsageKeyboardEnd) : @(RETROK_END),
+            
+            @(UIKeyboardHIDUsageKeyboardPower) : @(RETROK_POWER),
+            @(UIKeyboardHIDUsageKeyboardMenu) : @(RETROK_MENU),
+            @(UIKeyboardHIDUsageKeyboardClearOrAgain) : @(RETROK_CLEAR),
+
+            // TODO: There's more codes to add if you want 100%
+        };
     }
     
     return self;
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     close_audio();
 	close_voice();
 	close_display();
 	retro_destroybmp();
-    if(mbmp)
-    {
-        free(mbmp);
-    }
+    if(mbmp) { free(mbmp); }
 }
 
-#pragma mark Execution
+#pragma mark - Execution
+
 -(NSString*)systemIdentifier {
     return @"com.provenance.odyssey2";
 }
@@ -415,8 +466,7 @@ OdysseyGameCore *current;
     return self.BIOSPath;
 }
 
-- (BOOL)loadFileAtPath:(NSString *)path error:(NSError *__autoreleasing *)error
-{
+- (BOOL)loadFileAtPath:(NSString *)path error:(NSError *__autoreleasing *)error {
     RLOOP=1;
     
 	static char file[MAXC], attr[MAXC], val[MAXC], *p, *binver;
@@ -540,20 +590,18 @@ OdysseyGameCore *current;
         {
             int16_t sample16 = (soundBuffer[i] - 128 ) << 8;
 
-            [[current ringBufferAtIndex:0] write:&sample16 maxLength:2];
+            [[self ringBufferAtIndex:0] write:&sample16 maxLength:2];
         }
     }
 
     RLOOP=1;
 }
 
-- (void)executeFrame
-{
+- (void)executeFrame {
     [self executeFrameSkippingFrame:NO];
 }
 
-- (void)resetEmulation
-{
+- (void)resetEmulation {
     init_cpu();
     init_roms();
     init_vpp();
@@ -569,142 +617,5 @@ OdysseyGameCore *current;
 //    RLOOP = 0;
 //    [super stopEmulation];
 //}
-
-#pragma mark Video
-
-- (CGSize)aspectSize
-{
-    return CGSizeMake(EMUWIDTH, EMUHEIGHT);
-}
-
-- (CGRect)screenRect
-{
-    return CGRectMake(0, 0, EMUWIDTH, EMUHEIGHT);
-}
-
-- (CGSize)bufferSize
-{
-    return CGSizeMake(TEX_WIDTH, TEX_HEIGHT);
-}
-
-- (const void *)getVideoBufferWithHint:(void *)hint
-{
-    if(!hint)
-    {
-        if(!mbmp)
-        {
-            hint = mbmp = (uint16_t*)malloc(TEX_WIDTH * TEX_HEIGHT * sizeof(uint16_t));
-        }
-    }
-    else
-    {
-        mbmp = hint;
-    }
-
-    return mbmp;
-}
-
-- (GLenum)pixelFormat
-{
-    return GL_RGB;
-}
-
-- (GLenum)pixelType
-{
-    return GL_UNSIGNED_SHORT_5_6_5;
-}
-
-- (NSTimeInterval)frameInterval
-{
-    return evblclk == EVBLCLK_NTSC ? 60 : 50;
-}
-
-- (const void *)videoBuffer {
-    return [self getVideoBufferWithHint:nil];
-}
-
-- (GLenum)internalPixelFormat
-{
-    return GL_RGB;
-}
-
-- (BOOL)isDoubleBuffered {
-    return false;
-}
-
-#pragma mark Audio
-
-- (NSUInteger)channelCount
-{
-    return 1;
-}
-
-- (double)audioSampleRate
-{
-    return 44100;
-}
-
-- (NSUInteger)audioBitDepth
-{
-    return 16;
-}
-
-#pragma mark Input
-
-- (void)keyDown:(unsigned short)keyCode
-{
-    NSNumber *virtualCode = [virtualPhysicalKeyMap objectForKey:@(keyCode)];
-
-    if(virtualCode)
-        key[[virtualCode intValue]] = 1;
-}
-
-- (void)keyUp:(unsigned short)keyCode
-{
-    NSNumber *virtualCode = [virtualPhysicalKeyMap objectForKey:@(keyCode)];
-
-    if(virtualCode)
-        key[[virtualCode intValue]] = 0;
-}
-
-- (oneway void)didPushOdyssey2Button:(PVOdyssey2Button)button forPlayer:(NSInteger)player;
-{
-//    player--;
-    if (button == PVOdyssey2ButtonUp)
-        joystick_data[player][0] = 1;
-    else if (button == PVOdyssey2ButtonDown)
-        joystick_data[player][1] = 1;
-    else if (button == PVOdyssey2ButtonLeft)
-        joystick_data[player][2] = 1;
-    else if (button == PVOdyssey2ButtonRight)
-        joystick_data[player][3] = 1;
-    else if (button == PVOdyssey2ButtonAction)
-        joystick_data[player][4] = 1;
-}
-
-- (oneway void)didReleaseOdyssey2Button:(PVOdyssey2Button)button forPlayer:(NSInteger)player;
-{
-//    player--;
-    if (button == PVOdyssey2ButtonUp)
-        joystick_data[player][0] = 0;
-    else if (button == PVOdyssey2ButtonDown)
-        joystick_data[player][1] = 0;
-    else if (button == PVOdyssey2ButtonLeft)
-        joystick_data[player][2] = 0;
-    else if (button == PVOdyssey2ButtonRight)
-        joystick_data[player][3] = 0;
-    else if (button == PVOdyssey2ButtonAction)
-        joystick_data[player][4] = 0;
-}
-
-- (void)saveStateToFileAtPath:(NSString *)fileName completionHandler:(void (^)(BOOL, NSError *))block
-{
-    block(savestate(fileName.fileSystemRepresentation) ? YES : NO, nil);
-}
-
-- (void)loadStateFromFileAtPath:(NSString *)fileName completionHandler:(void (^)(BOOL, NSError *))block
-{
-    block(loadstate(fileName.fileSystemRepresentation) ? YES : NO, nil);
-}
 
 @end

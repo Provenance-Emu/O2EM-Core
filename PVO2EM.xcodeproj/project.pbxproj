@@ -49,6 +49,16 @@
 		B306E13E2769F921001DC52E /* libO2EM-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B306E12B2769F8AC001DC52E /* libO2EM-tvOS.a */; };
 		B360FDD02769FF85009A0EB0 /* Core.plist in Resources */ = {isa = PBXBuildFile; fileRef = B306E0D12769F48E001DC52E /* Core.plist */; };
 		B360FDD12769FF85009A0EB0 /* Core.plist in Resources */ = {isa = PBXBuildFile; fileRef = B306E0D12769F48E001DC52E /* Core.plist */; };
+		B37EC37E289C4C5F0062FD31 /* OdysseyGameCore+Options.m in Sources */ = {isa = PBXBuildFile; fileRef = B37EC379289C4C5E0062FD31 /* OdysseyGameCore+Options.m */; };
+		B37EC37F289C4C5F0062FD31 /* OdysseyGameCore+Options.m in Sources */ = {isa = PBXBuildFile; fileRef = B37EC379289C4C5E0062FD31 /* OdysseyGameCore+Options.m */; };
+		B37EC380289C4C600062FD31 /* OdysseyGameCore+Controls.m in Sources */ = {isa = PBXBuildFile; fileRef = B37EC37A289C4C5F0062FD31 /* OdysseyGameCore+Controls.m */; };
+		B37EC381289C4C600062FD31 /* OdysseyGameCore+Controls.m in Sources */ = {isa = PBXBuildFile; fileRef = B37EC37A289C4C5F0062FD31 /* OdysseyGameCore+Controls.m */; };
+		B37EC382289C4C600062FD31 /* OdysseyGameCore+Video.m in Sources */ = {isa = PBXBuildFile; fileRef = B37EC37B289C4C5F0062FD31 /* OdysseyGameCore+Video.m */; };
+		B37EC383289C4C600062FD31 /* OdysseyGameCore+Video.m in Sources */ = {isa = PBXBuildFile; fileRef = B37EC37B289C4C5F0062FD31 /* OdysseyGameCore+Video.m */; };
+		B37EC384289C4C600062FD31 /* OdysseyGameCore+Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = B37EC37C289C4C5F0062FD31 /* OdysseyGameCore+Audio.m */; };
+		B37EC385289C4C600062FD31 /* OdysseyGameCore+Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = B37EC37C289C4C5F0062FD31 /* OdysseyGameCore+Audio.m */; };
+		B37EC386289C4C600062FD31 /* OdysseyGameCore+Saves.m in Sources */ = {isa = PBXBuildFile; fileRef = B37EC37D289C4C5F0062FD31 /* OdysseyGameCore+Saves.m */; };
+		B37EC387289C4C600062FD31 /* OdysseyGameCore+Saves.m in Sources */ = {isa = PBXBuildFile; fileRef = B37EC37D289C4C5F0062FD31 /* OdysseyGameCore+Saves.m */; };
 		B3FB967A276DE0F000F7EDEE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 089C1672FE841209C02AAC07 /* Foundation.framework */; };
 		B3FB967C276DE0F900F7EDEE /* PVSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3FB967B276DE0F900F7EDEE /* PVSupport.framework */; };
 /* End PBXBuildFile section */
@@ -153,6 +163,11 @@
 		B306E10E2769F71F001DC52E /* PVSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PVSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B306E12B2769F8AC001DC52E /* libO2EM-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libO2EM-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B306E13D2769F8D9001DC52E /* PVO2EM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PVO2EM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B37EC379289C4C5E0062FD31 /* OdysseyGameCore+Options.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OdysseyGameCore+Options.m"; sourceTree = "<group>"; };
+		B37EC37A289C4C5F0062FD31 /* OdysseyGameCore+Controls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OdysseyGameCore+Controls.m"; sourceTree = "<group>"; };
+		B37EC37B289C4C5F0062FD31 /* OdysseyGameCore+Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OdysseyGameCore+Video.m"; sourceTree = "<group>"; };
+		B37EC37C289C4C5F0062FD31 /* OdysseyGameCore+Audio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OdysseyGameCore+Audio.m"; sourceTree = "<group>"; };
+		B37EC37D289C4C5F0062FD31 /* OdysseyGameCore+Saves.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OdysseyGameCore+Saves.m"; sourceTree = "<group>"; };
 		B3FB967B276DE0F900F7EDEE /* PVSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PVSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5008DAD0E8BFB3E005AECAF /* OdysseyGameCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OdysseyGameCore.h; sourceTree = "<group>"; };
 		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -236,6 +251,11 @@
 			children = (
 				B5008DAD0E8BFB3E005AECAF /* OdysseyGameCore.h */,
 				941DFB2615B6425200C6552F /* OdysseyGameCore.m */,
+				B37EC37C289C4C5F0062FD31 /* OdysseyGameCore+Audio.m */,
+				B37EC37A289C4C5F0062FD31 /* OdysseyGameCore+Controls.m */,
+				B37EC379289C4C5E0062FD31 /* OdysseyGameCore+Options.m */,
+				B37EC37D289C4C5F0062FD31 /* OdysseyGameCore+Saves.m */,
+				B37EC37B289C4C5F0062FD31 /* OdysseyGameCore+Video.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -514,7 +534,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B37EC386289C4C600062FD31 /* OdysseyGameCore+Saves.m in Sources */,
+				B37EC37E289C4C5F0062FD31 /* OdysseyGameCore+Options.m in Sources */,
 				B306E10C2769F70A001DC52E /* OdysseyGameCore.m in Sources */,
+				B37EC380289C4C600062FD31 /* OdysseyGameCore+Controls.m in Sources */,
+				B37EC382289C4C600062FD31 /* OdysseyGameCore+Video.m in Sources */,
+				B37EC384289C4C600062FD31 /* OdysseyGameCore+Audio.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,7 +569,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B37EC387289C4C600062FD31 /* OdysseyGameCore+Saves.m in Sources */,
+				B37EC37F289C4C5F0062FD31 /* OdysseyGameCore+Options.m in Sources */,
 				B306E1332769F8D9001DC52E /* OdysseyGameCore.m in Sources */,
+				B37EC381289C4C600062FD31 /* OdysseyGameCore+Controls.m in Sources */,
+				B37EC383289C4C600062FD31 /* OdysseyGameCore+Video.m in Sources */,
+				B37EC385289C4C600062FD31 /* OdysseyGameCore+Audio.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
