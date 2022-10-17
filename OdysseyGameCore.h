@@ -3,7 +3,8 @@
  */
 
 @import Foundation;
-@import PVSupport;
+#import <PVSupport/PVSupport.h>
+#import <PVSupport/PVSupport-Swift.h>
 
 __attribute__((visibility("default")))
 @interface OdysseyGameCore : PVEmulatorCore <PVOdyssey2SystemResponderClient>

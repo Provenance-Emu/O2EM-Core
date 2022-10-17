@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -47,6 +47,8 @@
 		B306E1362769F8D9001DC52E /* PVSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B306E10E2769F71F001DC52E /* PVSupport.framework */; };
 		B306E1392769F8D9001DC52E /* PVSupport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B306E10E2769F71F001DC52E /* PVSupport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B306E13E2769F921001DC52E /* libO2EM-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B306E12B2769F8AC001DC52E /* libO2EM-tvOS.a */; };
+		B3599B9D28F97E8F003BB7D2 /* PVSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3599B9C28F97E8F003BB7D2 /* PVSupport.framework */; };
+		B3599B9E28F97E8F003BB7D2 /* PVSupport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B3599B9C28F97E8F003BB7D2 /* PVSupport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B360FDD02769FF85009A0EB0 /* Core.plist in Resources */ = {isa = PBXBuildFile; fileRef = B306E0D12769F48E001DC52E /* Core.plist */; };
 		B360FDD12769FF85009A0EB0 /* Core.plist in Resources */ = {isa = PBXBuildFile; fileRef = B306E0D12769F48E001DC52E /* Core.plist */; };
 		B37EC37E289C4C5F0062FD31 /* OdysseyGameCore+Options.m in Sources */ = {isa = PBXBuildFile; fileRef = B37EC379289C4C5E0062FD31 /* OdysseyGameCore+Options.m */; };
@@ -60,7 +62,6 @@
 		B37EC386289C4C600062FD31 /* OdysseyGameCore+Saves.m in Sources */ = {isa = PBXBuildFile; fileRef = B37EC37D289C4C5F0062FD31 /* OdysseyGameCore+Saves.m */; };
 		B37EC387289C4C600062FD31 /* OdysseyGameCore+Saves.m in Sources */ = {isa = PBXBuildFile; fileRef = B37EC37D289C4C5F0062FD31 /* OdysseyGameCore+Saves.m */; };
 		B3FB967A276DE0F000F7EDEE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 089C1672FE841209C02AAC07 /* Foundation.framework */; };
-		B3FB967C276DE0F900F7EDEE /* PVSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3FB967B276DE0F900F7EDEE /* PVSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,17 @@
 			dstSubfolderSpec = 10;
 			files = (
 				B306E1392769F8D9001DC52E /* PVSupport.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3599B9F28F97E8F003BB7D2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B3599B9E28F97E8F003BB7D2 /* PVSupport.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,6 +175,10 @@
 		B306E10E2769F71F001DC52E /* PVSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PVSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B306E12B2769F8AC001DC52E /* libO2EM-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libO2EM-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B306E13D2769F8D9001DC52E /* PVO2EM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PVO2EM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3599B9B28F979E0003BB7D2 /* BuildFlags.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BuildFlags.xcconfig; sourceTree = "<group>"; };
+		B3599B9C28F97E8F003BB7D2 /* PVSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PVSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3599B9B28F979E0003BB7D2 /* BuildFlags.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BuildFlags.xcconfig; sourceTree = "<group>"; };
+		B3599B9C28F97E8F003BB7D2 /* PVSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PVSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B37EC379289C4C5E0062FD31 /* OdysseyGameCore+Options.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OdysseyGameCore+Options.m"; sourceTree = "<group>"; };
 		B37EC37A289C4C5F0062FD31 /* OdysseyGameCore+Controls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OdysseyGameCore+Controls.m"; sourceTree = "<group>"; };
 		B37EC37B289C4C5F0062FD31 /* OdysseyGameCore+Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OdysseyGameCore+Video.m"; sourceTree = "<group>"; };
@@ -185,7 +201,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3FB967C276DE0F900F7EDEE /* PVSupport.framework in Frameworks */,
+				B3599B9D28F97E8F003BB7D2 /* PVSupport.framework in Frameworks */,
 				B306E1122769F730001DC52E /* libO2EM-iOS.a in Frameworks */,
 				B3FB967A276DE0F000F7EDEE /* Foundation.framework in Frameworks */,
 			);
@@ -213,6 +229,7 @@
 		089C166AFE841209C02AAC07 /* VisualBoyAdvance */ = {
 			isa = PBXGroup;
 			children = (
+				B3599B9B28F979E0003BB7D2 /* BuildFlags.xcconfig */,
 				94A9E27F157D637B0083A7DC /* Core */,
 				08FB77AFFE84173DC02AAC07 /* Classes */,
 				089C167CFE841241C02AAC07 /* Resources */,
@@ -227,6 +244,7 @@
 		089C1671FE841209C02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B3599B9C28F97E8F003BB7D2 /* PVSupport.framework */,
 				B3FB967B276DE0F900F7EDEE /* PVSupport.framework */,
 				B306E10E2769F71F001DC52E /* PVSupport.framework */,
 				B306E0CA2769F099001DC52E /* PVSupport.framework */,
@@ -405,6 +423,7 @@
 				B306E1012769F704001DC52E /* Sources */,
 				B306E1022769F704001DC52E /* Frameworks */,
 				B306E1032769F704001DC52E /* Resources */,
+				B3599B9F28F97E8F003BB7D2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -459,7 +478,9 @@
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = PV;
 				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Provenance Emu";
 				TargetAttributes = {
 					B306E0D62769F6AB001DC52E = {
 						CreatedOnToolsVersion = 13.0;
@@ -470,7 +491,7 @@
 				};
 			};
 			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "PVO2EM" */;
-			compatibilityVersion = "Xcode 11.4";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -607,6 +628,7 @@
 /* Begin XCBuildConfiguration section */
 		1DEB913F08733D840010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3599B9B28F979E0003BB7D2 /* BuildFlags.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -644,6 +666,7 @@
 		};
 		1DEB914008733D840010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3599B9B28F979E0003BB7D2 /* BuildFlags.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
