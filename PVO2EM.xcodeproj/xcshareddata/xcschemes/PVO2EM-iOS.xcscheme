@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B306E1042769F704001DC52E"
                BuildableName = "PVO2EM.framework"
-               BlueprintName = "PVO2EM-iOS"
+               BlueprintName = "PVO2EM"
                ReferencedContainer = "container:PVO2EM.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -52,7 +52,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B306E1042769F704001DC52E"
             BuildableName = "PVO2EM.framework"
-            BlueprintName = "PVO2EM-iOS"
+            BlueprintName = "PVO2EM"
             ReferencedContainer = "container:PVO2EM.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
