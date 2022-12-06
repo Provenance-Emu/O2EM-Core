@@ -7,17 +7,19 @@
 @import PVSupport.Swift;
 //b#import <PVSupport/PVSupport-Swift.h>
 
-#if !TARGET_OS_MACCATALYST && !TARGET_OS_OSX
-#import <OpenGLES/gltypes.h>
+#if __has_include(<OpenGL/OpenGL.h>)
+#import <OpenGL/gl3.h>
+#import <OpenGL/gl3ext.h>
+#import <OpenGL/OpenGL.h>
+#import <GLUT/GLUT.h>
+#else
 #import <OpenGLES/ES3/gl.h>
 #import <OpenGLES/ES3/glext.h>
-#import <OpenGLES/EAGL.h>
-#else
-@import OpenGL;
-@import GLUT;
 #endif
 
+#if __has_include(<UIKit/UIKeyConstants.h>)
 #import <UIKit/UIKeyConstants.h>
+#endif
 
 #include "crc32.h"
 #include "audio.h"
