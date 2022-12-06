@@ -27,10 +27,11 @@
 #include "config.h"
 #include "vdc.h"
 #include "cpu.h"
-#include "debug.h"
+//#include "debug.h"
 #include "keyboard.h"
 #include "voice.h"
 #include "vpp.h"
+//#include "types.h"
 
 #include "wrapalleg.h"
 
