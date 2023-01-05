@@ -33,6 +33,7 @@
 		B37EC382289C4C600062FD31 /* OdysseyGameCore+Video.m in Sources */ = {isa = PBXBuildFile; fileRef = B37EC37B289C4C5F0062FD31 /* OdysseyGameCore+Video.m */; };
 		B37EC384289C4C600062FD31 /* OdysseyGameCore+Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = B37EC37C289C4C5F0062FD31 /* OdysseyGameCore+Audio.m */; };
 		B37EC386289C4C600062FD31 /* OdysseyGameCore+Saves.m in Sources */ = {isa = PBXBuildFile; fileRef = B37EC37D289C4C5F0062FD31 /* OdysseyGameCore+Saves.m */; };
+		B3E549452966550E009BFDB9 /* PVEmulatorCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3E549442966550E009BFDB9 /* PVEmulatorCore.framework */; };
 		B3FB967A276DE0F000F7EDEE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 089C1672FE841209C02AAC07 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +115,7 @@
 		B37EC37B289C4C5F0062FD31 /* OdysseyGameCore+Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OdysseyGameCore+Video.m"; sourceTree = "<group>"; };
 		B37EC37C289C4C5F0062FD31 /* OdysseyGameCore+Audio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OdysseyGameCore+Audio.m"; sourceTree = "<group>"; };
 		B37EC37D289C4C5F0062FD31 /* OdysseyGameCore+Saves.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OdysseyGameCore+Saves.m"; sourceTree = "<group>"; };
+		B3E549442966550E009BFDB9 /* PVEmulatorCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PVEmulatorCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3FB967B276DE0F900F7EDEE /* PVSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PVSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5008DAD0E8BFB3E005AECAF /* OdysseyGameCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OdysseyGameCore.h; sourceTree = "<group>"; };
 		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -131,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3E549452966550E009BFDB9 /* PVEmulatorCore.framework in Frameworks */,
 				B3599B9D28F97E8F003BB7D2 /* PVSupport.framework in Frameworks */,
 				B306E1122769F730001DC52E /* libO2EM.a in Frameworks */,
 				B3FB967A276DE0F000F7EDEE /* Foundation.framework in Frameworks */,
@@ -158,6 +161,7 @@
 		089C1671FE841209C02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B3E549442966550E009BFDB9 /* PVEmulatorCore.framework */,
 				B3599B9C28F97E8F003BB7D2 /* PVSupport.framework */,
 				B3FB967B276DE0F900F7EDEE /* PVSupport.framework */,
 				B306E10E2769F71F001DC52E /* PVSupport.framework */,
@@ -685,8 +689,9 @@
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx watchos watchsimulator";
 				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4,6";
 				TVOS_DEPLOYMENT_TARGET = 13.0;
@@ -753,8 +758,9 @@
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx watchos watchsimulator";
 				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4,6";
 				TVOS_DEPLOYMENT_TARGET = 13.0;
@@ -859,8 +865,9 @@
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx watchos watchsimulator";
 				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4,6";
 				TVOS_DEPLOYMENT_TARGET = 13.0;
