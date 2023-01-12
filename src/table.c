@@ -15,9 +15,8 @@
  */
 
 
-#include "cpu.h"
-#include "table.h"
-
+//#import "cpu.h"
+#import "table.h"
 
 struct lookup_tag lookup[] = {
 

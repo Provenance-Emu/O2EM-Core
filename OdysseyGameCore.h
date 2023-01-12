@@ -3,12 +3,10 @@
  */
 
 @import Foundation;
-#import <PVSupport/PVSupport.h>
-#import <PVSupport/PVSupport-Swift.h>
+@import PVSupport;
 
 __attribute__((visibility("default")))
-@interface OdysseyGameCore : PVEmulatorCore <PVOdyssey2SystemResponderClient>
-{
+@interface OdysseyGameCore : PVEmulatorCore <PVOdyssey2SystemResponderClient> {
     NSDictionary *virtualPhysicalKeyMap;
 }
 @end

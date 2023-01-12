@@ -1,8 +1,8 @@
-
+#pragma once
 #ifndef WRAP_H
 #define WRAP_H 1
 
-#include <unistd.h>
+#import <unistd.h>
 #define INLINE static inline
 #define rest(a) usleep(a)
 #define strupr upcase

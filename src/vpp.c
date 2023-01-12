@@ -15,19 +15,19 @@
  */
 
 
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
-#include "types.h"
-#include "vmachine.h"
-#include "vdc.h"
-#include "vpp_cset.h"
-#include "vpp.h"
+#import <stdlib.h>
+#import <string.h>
+#import <stdio.h>
+#import "types.h"
+#import "vmachine.h"
+#import "vdc.h"
+#import "vpp_cset.h"
+#import "vpp.h"
 
 #ifndef __LIBRETRO__
-#include "allegro.h"
+#import "allegro.h"
 #else
-#include "wrapalleg.h"
+#import "wrapalleg.h"
 #endif
 
 static void vpp_draw_char(int x, int y, Byte ch, Byte c0, Byte c1, Byte ext, Byte dw, Byte dh, Byte ul);

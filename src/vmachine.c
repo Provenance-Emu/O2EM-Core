@@ -15,26 +15,26 @@
  */
 
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <time.h>
-#include "audio.h"
-#include "types.h"
-#include "cpu.h"
-#include "keyboard.h"
-#include "config.h"
-#include "debug.h" 
-#include "vdc.h" 
-#include "vpp.h"
-#include "timefunc.h"
-#include "voice.h"
-#include "vmachine.h"
+#import <stdlib.h>
+#import <stdio.h>
+#import <time.h>
+#import "audio.h"
+#import "types.h"
+#import "cpu.h"
+#import "keyboard.h"
+#import "config.h"
+#import "debug.h" 
+#import "vdc.h" 
+#import "vpp.h"
+#import "timefunc.h"
+#import "voice.h"
+#import "vmachine.h"
 
 #ifndef __LIBRETRO__
-#include "allegro.h"
+#import "allegro.h"
 #else
-#include "wrapalleg.h"
-#include "libretro.h"
+#import "wrapalleg.h"
+#import "libretro.h"
 extern unsigned char key[512];
 #endif
 
@@ -103,7 +103,7 @@ void run(void){
 			set_textmode();
 			mute_audio();
 			mute_voice();
-			debug();
+//			debug();
 			grmode();
 			app_data.debug=0;
 			init_keyboard();

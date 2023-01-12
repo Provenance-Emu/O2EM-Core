@@ -15,27 +15,27 @@
  */
 
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "types.h"
-#include "cpu.h"
-#include "config.h"
-#include "vmachine.h"
-#include "vdc.h"
-#include "audio.h"
-#include "voice.h"
-#include "vpp.h"
-#include "keyboard.h"
+#import <stdio.h>
+#import <stdlib.h>
+#import <string.h>
+#import "types.h"
+#import "cpu.h"
+#import "config.h"
+#import "vmachine.h"
+#import "vdc.h"
+#import "audio.h"
+#import "voice.h"
+#import "vpp.h"
+#import "keyboard.h"
 
 #ifndef __LIBRETRO__
-#include "allegro.h"
+#import "allegro.h"
 #else
-#include "libretro.h"
-#include "wrapalleg.h"
+#import "libretro.h"
+#import "wrapalleg.h"
 #endif
 
-#include "score.h"
+#import "score.h"
 
 int NeedsPoll = 0;
 

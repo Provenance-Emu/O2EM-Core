@@ -1,3 +1,4 @@
+#pragma once
 #ifndef __VDC_H
 #define __VDC_H
 

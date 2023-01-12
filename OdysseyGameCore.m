@@ -21,23 +21,32 @@
 #import <UIKit/UIKeyConstants.h>
 #endif
 
-#include "crc32.h"
-#include "audio.h"
-#include "vmachine.h"
-#include "config.h"
-#include "vdc.h"
-#include "cpu.h"
-//#include "debug.h"
-#include "keyboard.h"
-#include "voice.h"
-#include "vpp.h"
-//#include "types.h"
+#import "crc32.h"
+#import "audio.h"
+#import "vmachine.h"
+#import "config.h"
+#import "vdc.h"
 
-#include "wrapalleg.h"
+// This include creates duplicate symbols due to statics in headers.
+// Forward declaring instead
+//#import "cpu.h"
+extern void init_cpu(void);
+extern void cpu_exec(void);
+extern void ext_IRQ(void);
+extern void tim_IRQ(void);
+extern void make_psw_debug(void);
 
-#include "score.h"
+//#import "debug.h"
+#import "keyboard.h"
+#import "voice.h"
+#import "vpp.h"
+//#import "types.h"
 
-#include "libretro.h"
+#import "wrapalleg.h"
+
+#import "score.h"
+
+#import "libretro.h"
 
 @interface OdysseyGameCore () <PVOdyssey2SystemResponderClient>
 {

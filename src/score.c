@@ -13,18 +13,18 @@
  *   Score loading/saving by manopac
  */
 
-#include <dirent.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
-#include <time.h>
-#include "vmachine.h"
-#include "types.h"
-#include "score.h"
+#import <dirent.h>
+#import <stdio.h>
+#import <stdlib.h>
+#import <string.h>
+#import <ctype.h>
+#import <time.h>
+#import "vmachine.h"
+#import "types.h"
+#import "score.h"
 
 #ifdef __LIBRETRO__
-#include <errno.h>
+#import <errno.h>
 #endif 
 
 /*--------------------------------------------------

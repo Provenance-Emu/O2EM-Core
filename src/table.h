@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef __TABLE_H
 #define __TABLE_H
 

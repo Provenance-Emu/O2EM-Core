@@ -1,7 +1,9 @@
+#pragma once
+
 #ifndef VMACHINE_H
 #define VMACHINE_H
 
-#include "types.h"
+#import "types.h"
 
 #define LINECNT 21
 #define MAXLINES 500

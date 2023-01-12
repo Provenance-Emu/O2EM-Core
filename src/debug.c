@@ -14,32 +14,32 @@
  */
 
 
-#include <stdio.h>
-#include <string.h>
-#include "cpu.h"
-#include "keyboard.h"
-#include "vmachine.h"
-#include "audio.h"
-#include "vdc.h"
-#include "table.h"
-#include "debug.h"
+#import <stdio.h>
+#import <string.h>
+#import "cpu.h"
+#import "keyboard.h"
+#import "vmachine.h"
+#import "audio.h"
+#import "vdc.h"
+#import "table.h"
+#import "debug.h"
 
 #ifndef __LIBRETRO__
-#include "allegro.h"
+#import "allegro.h"
 #else
-#include "wrapalleg.h"
-#include <errno.h>
+#import "wrapalleg.h"
+#import <errno.h>
 #endif 
 
-#include "vpp.h"
-#include "score.h"
+#import "vpp.h"
+#import "score.h"
 
 #if defined(ALLEGRO_WINDOWS)
-#include "winalleg.h"
-#include <conio.h>
+#import "winalleg.h"
+#import <conio.h>
 #define KBHIT _kbhit
 #elif defined(ALLEGRO_DOS)
-#include <conio.h>
+#import <conio.h>
 #define KBHIT kbhit
 #else
 #define KBHIT() 0

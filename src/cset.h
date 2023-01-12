@@ -1,3 +1,4 @@
+#pragma once
 #ifndef __CSET_H
 #define __CSET_H
 

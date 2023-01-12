@@ -15,18 +15,18 @@
  */
 
 
-#include <stdio.h>
-#include <stdint.h>
-#include <stdlib.h>
-#include <string.h>
-#include "cpu.h"
-#include "types.h"
-#include "config.h"
-#include "vmachine.h"
-#include "audio.h"
+#import <stdio.h>
+#import <stdint.h>
+#import <stdlib.h>
+#import <string.h>
+//#import "cpu.h"
+#import "types.h"
+#import "config.h"
+#import "vmachine.h"
+#import "audio.h"
 
 #ifndef __LIBRETRO__
-#include "allegro.h"
+#import "allegro.h"
 #else
 extern int SND;
 extern uint8_t soundBuffer[1056];

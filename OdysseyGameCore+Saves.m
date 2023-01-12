@@ -1,5 +1,5 @@
 #import "OdysseyGameCore.h"
-#include "vmachine.h"
+#import "vmachine.h"
 
 @implementation OdysseyGameCore (Saves)
 #pragma mark - Saves

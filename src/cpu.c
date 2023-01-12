@@ -15,14 +15,14 @@
  */
 
 
-#include <stdio.h>
-#include "types.h"
-#include "vmachine.h"
-#include "keyboard.h"
-#include "voice.h"
-#include "vdc.h"
-#include "vpp.h"
-#include "cpu.h"
+#import <stdio.h>
+#import "types.h"
+#import "vmachine.h"
+#import "keyboard.h"
+#import "voice.h"
+#import "vdc.h"
+#import "vpp.h"
+#import "cpu.h"
 
 #define push(d) {intRAM[sp++] = (d); if (sp > 23) sp = 8;}
 #define pull() (sp--, (sp < 8)?(sp=23):0, intRAM[sp])
@@ -31,6 +31,37 @@
 #define undef(i) {printf("** unimplemented instruction %x, %x**\n",i,pc);}
 #define ROM(adr) (rom[(adr) & 0xfff])
 
+
+Byte acc;        /* Accumulator */
+ADDRESS pc;        /* Program counter */
+long clk;        /* clock */
+
+Byte itimer;    /* Internal timer */
+Byte reg_pnt;    /* pointer to register bank */
+Byte timer_on;  /* 0=timer off/1=timer on */
+Byte count_on;  /* 0=count off/1=count on */
+Byte psw;        /* Processor status word */
+Byte sp;        /* Stack pointer (part of psw) */
+
+Byte p1;        /* I/O port 1 */
+Byte p2;         /* I/O port 2 */
+Byte xirq_pend; /* external IRQ pending */
+Byte tirq_pend; /* timer IRQ pending */
+Byte t_flag;    /* Timer flag */
+
+ADDRESS lastpc;
+ADDRESS A11;        /* PC bit 11 */
+ADDRESS A11ff;
+Byte bs;         /* Register Bank (part of psw) */
+Byte f0;            /* Flag Bit (part of psw) */
+Byte f1;            /* Flag Bit 1 */
+Byte ac;            /* Aux Carry (part of psw) */
+Byte cy;            /* Carry flag (part of psw) */
+Byte xirq_en;    /* external IRQ's enabled */
+Byte tirq_en;    /* Timer IRQ enabled */
+Byte irq_ex;        /* IRQ executing */
+
+int master_count;
 
 void init_cpu(void){
 	pc=0;
@@ -94,6 +125,7 @@ void cpu_exec(void) {
 	int temp;
 
 	#ifndef __LIBRETRO__
+    
 	for (;;)
 	#else
 	while(RLOOP==1)

@@ -10,8 +10,8 @@
 @import GLUT;
 #endif
 
-#include "vmachine.h"
-#include "wrapalleg.h"
+#import "vmachine.h"
+#import "wrapalleg.h"
 
 extern uint16_t *mbmp;
 

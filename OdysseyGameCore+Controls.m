@@ -1,20 +1,20 @@
 #import "OdysseyGameCore.h"
-//#include "crc32.h"
-//#include "audio.h"
-//#include "vmachine.h"
-//#include "config.h"
-//#include "vdc.h"
-//#include "cpu.h"
-//#include "debug.h"
-//#include "keyboard.h"
-//#include "voice.h"
-//#include "vpp.h"
+//#import "crc32.h"
+//#import "audio.h"
+//#import "vmachine.h"
+//#import "config.h"
+//#import "vdc.h"
+//#import "cpu.h"
+//#import "debug.h"
+//#import "keyboard.h"
+//#import "voice.h"
+//#import "vpp.h"
 
-#include "wrapalleg.h"
+#import "wrapalleg.h"
 
-#include "score.h"
+#import "score.h"
 
-#include "libretro.h"
+#import "libretro.h"
 
 int joystick_data[2][5]={{0,0,0,0,0},{0,0,0,0,0}};
 

@@ -1,9 +1,9 @@
 
-#include "wrapalleg.h"
+#import "wrapalleg.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#import <stdio.h>
+#import <stdlib.h>
+#import <string.h>
 #define abs(a) miabs(a)
 
 #define clear o2_clear
