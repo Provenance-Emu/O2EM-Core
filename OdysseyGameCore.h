@@ -5,7 +5,7 @@
 @import Foundation;
 @import PVSupport;
 
-__attribute__((visibility("default")))
+PVCORE_DIRECT_MEMBERS
 @interface OdysseyGameCore : PVEmulatorCore <PVOdyssey2SystemResponderClient> {
     NSDictionary *virtualPhysicalKeyMap;
 }
