@@ -20,6 +20,8 @@
 #import <stdlib.h>
 #import <string.h>
 //#import "cpu.h"
+extern void ext_IRQ(void);
+
 #import "types.h"
 #import "config.h"
 #import "vmachine.h"

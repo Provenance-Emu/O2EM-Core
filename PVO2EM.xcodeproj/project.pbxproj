@@ -558,6 +558,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B3599B9B28F979E0003BB7D2 /* BuildFlags.xcconfig */;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
@@ -596,6 +597,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B3599B9B28F979E0003BB7D2 /* BuildFlags.xcconfig */;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
@@ -1184,6 +1186,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B3599B9B28F979E0003BB7D2 /* BuildFlags.xcconfig */;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
