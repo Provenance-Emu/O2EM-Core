@@ -35,6 +35,7 @@
 		B36C50D5296F49BD00921F85 /* OdysseyGameCore+Options.m in Sources */ = {isa = PBXBuildFile; fileRef = B37EC379289C4C5E0062FD31 /* OdysseyGameCore+Options.m */; };
 		B36C50D6296F49BD00921F85 /* OdysseyGameCore+Video.m in Sources */ = {isa = PBXBuildFile; fileRef = B37EC37B289C4C5F0062FD31 /* OdysseyGameCore+Video.m */; };
 		B36C50D7296F49BD00921F85 /* OdysseyGameCore+Saves.m in Sources */ = {isa = PBXBuildFile; fileRef = B37EC37D289C4C5F0062FD31 /* OdysseyGameCore+Saves.m */; };
+		B39413832C04EACF002AA690 /* PVEmulatorCore in Frameworks */ = {isa = PBXBuildFile; productRef = B39413822C04EACF002AA690 /* PVEmulatorCore */; };
 		B3E88CC22977B52800C90E86 /* PVLogging in Frameworks */ = {isa = PBXBuildFile; productRef = B3E88CC12977B52800C90E86 /* PVLogging */; };
 		B3FB967A276DE0F000F7EDEE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 089C1672FE841209C02AAC07 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -88,7 +89,6 @@
 
 /* Begin PBXFileReference section */
 		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		089C167EFE841241C02AAC07 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -164,6 +164,7 @@
 			files = (
 				B36C50BD296F403400921F85 /* liballegrowrapper.a in Frameworks */,
 				B3599B9D28F97E8F003BB7D2 /* PVSupport.framework in Frameworks */,
+				B39413832C04EACF002AA690 /* PVEmulatorCore in Frameworks */,
 				B306E1122769F730001DC52E /* libO2EM.a in Frameworks */,
 				B3FB967A276DE0F000F7EDEE /* Foundation.framework in Frameworks */,
 				B3E88CC22977B52800C90E86 /* PVLogging in Frameworks */,
@@ -191,10 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				B3599B9B28F979E0003BB7D2 /* BuildFlags.xcconfig */,
-				94A9E27F157D637B0083A7DC /* Core */,
 				08FB77AFFE84173DC02AAC07 /* Classes */,
-				089C167CFE841241C02AAC07 /* Resources */,
-				B306E1062769F704001DC52E /* PVO2EM */,
 				089C1671FE841209C02AAC07 /* Frameworks */,
 				19C28FB8FE9D52D311CA2CBB /* Products */,
 			);
@@ -215,26 +213,11 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		089C167CFE841241C02AAC07 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				B306E0D12769F48E001DC52E /* Core.plist */,
-				8D5B49B7048680CD000E48DA /* Info.plist */,
-				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				B5008DAD0E8BFB3E005AECAF /* OdysseyGameCore.h */,
-				941DFB2615B6425200C6552F /* OdysseyGameCore.m */,
-				B37EC37C289C4C5F0062FD31 /* OdysseyGameCore+Audio.m */,
-				B37EC37A289C4C5F0062FD31 /* OdysseyGameCore+Controls.m */,
-				B37EC379289C4C5E0062FD31 /* OdysseyGameCore+Options.m */,
-				B37EC37D289C4C5F0062FD31 /* OdysseyGameCore+Saves.m */,
-				B37EC37B289C4C5F0062FD31 /* OdysseyGameCore+Video.m */,
+				B394137E2C04EA81002AA690 /* libo2em */,
+				B394137D2C04EA52002AA690 /* PVOdysseyGameCore */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -269,22 +252,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		94A9E27F157D637B0083A7DC /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				94AD8A36199AD89200E6520F /* allegrowrapper */,
-				94AD8A46199AD89200E6520F /* src */,
-			);
-			name = Core;
-			sourceTree = "<group>";
-		};
 		94AD8A36199AD89200E6520F /* allegrowrapper */ = {
 			isa = PBXGroup;
 			children = (
 				94AD8A37199AD89200E6520F /* wrapalleg.c */,
 				94AD8A38199AD89200E6520F /* wrapalleg.h */,
 			);
-			path = allegrowrapper;
+			name = allegrowrapper;
+			path = libo2em/allegrowrapper;
 			sourceTree = SOURCE_ROOT;
 		};
 		94AD8A46199AD89200E6520F /* src */ = {
@@ -325,15 +300,50 @@
 				94AD8A75199AD89200E6520F /* vpp_cset.h */,
 				94AD8A73199AD89200E6520F /* vpp.h */,
 			);
-			path = src;
+			name = src;
+			path = libo2em/src;
 			sourceTree = SOURCE_ROOT;
 		};
-		B306E1062769F704001DC52E /* PVO2EM */ = {
+		B394137D2C04EA52002AA690 /* PVOdysseyGameCore */ = {
+			isa = PBXGroup;
+			children = (
+				B39413802C04EAA7002AA690 /* Resources */,
+				B394137F2C04EA9B002AA690 /* include */,
+				B5008DAD0E8BFB3E005AECAF /* OdysseyGameCore.h */,
+				941DFB2615B6425200C6552F /* OdysseyGameCore.m */,
+				B37EC37C289C4C5F0062FD31 /* OdysseyGameCore+Audio.m */,
+				B37EC37A289C4C5F0062FD31 /* OdysseyGameCore+Controls.m */,
+				B37EC379289C4C5E0062FD31 /* OdysseyGameCore+Options.m */,
+				B37EC37D289C4C5F0062FD31 /* OdysseyGameCore+Saves.m */,
+				B37EC37B289C4C5F0062FD31 /* OdysseyGameCore+Video.m */,
+			);
+			path = PVOdysseyGameCore;
+			sourceTree = "<group>";
+		};
+		B394137E2C04EA81002AA690 /* libo2em */ = {
+			isa = PBXGroup;
+			children = (
+				94AD8A36199AD89200E6520F /* allegrowrapper */,
+				94AD8A46199AD89200E6520F /* src */,
+			);
+			path = libo2em;
+			sourceTree = "<group>";
+		};
+		B394137F2C04EA9B002AA690 /* include */ = {
 			isa = PBXGroup;
 			children = (
 				B306E1072769F705001DC52E /* PVO2EM.h */,
 			);
-			path = PVO2EM;
+			path = include;
+			sourceTree = "<group>";
+		};
+		B39413802C04EAA7002AA690 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B306E0D12769F48E001DC52E /* Core.plist */,
+				8D5B49B7048680CD000E48DA /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,6 +396,7 @@
 			name = PVO2EM;
 			packageProductDependencies = (
 				B3E88CC12977B52800C90E86 /* PVLogging */,
+				B39413822C04EACF002AA690 /* PVEmulatorCore */,
 			);
 			productName = PVO2EM;
 			productReference = B306E1052769F704001DC52E /* PVO2EM.framework */;
@@ -455,6 +466,9 @@
 			);
 			mainGroup = 089C166AFE841209C02AAC07 /* VisualBoyAdvance */;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B39413812C04EACF002AA690 /* XCLocalSwiftPackageReference "../../PVEmulatorCore" */,
+			);
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -542,17 +556,6 @@
 			targetProxy = B36C50BE296F403500921F85 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		089C167DFE841241C02AAC07 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				089C167EFE841241C02AAC07 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1DEB913F08733D840010E9CD /* Debug */ = {
@@ -679,8 +682,8 @@
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/allegrowrapper\"",
-					"\"$(SRCROOT)/src\"",
+					"\"$(SRCROOT)/libo2em/allegrowrapper\"",
+					"\"$(SRCROOT)/libo2em/src\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -730,8 +733,8 @@
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/allegrowrapper\"",
-					"\"$(SRCROOT)/src\"",
+					"\"$(SRCROOT)/libo2em/allegrowrapper\"",
+					"\"$(SRCROOT)/libo2em/src\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -942,8 +945,8 @@
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/allegrowrapper\"",
-					"\"$(SRCROOT)/src\"",
+					"\"$(SRCROOT)/libo2em/allegrowrapper\"",
+					"\"$(SRCROOT)/libo2em/src\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -992,8 +995,8 @@
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/allegrowrapper\"",
-					"\"$(SRCROOT)/src\"",
+					"\"$(SRCROOT)/libo2em/allegrowrapper\"",
+					"\"$(SRCROOT)/libo2em/src\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1043,8 +1046,8 @@
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/allegrowrapper\"",
-					"\"$(SRCROOT)/src\"",
+					"\"$(SRCROOT)/libo2em/allegrowrapper\"",
+					"\"$(SRCROOT)/libo2em/src\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1333,8 +1336,8 @@
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/allegrowrapper\"",
-					"\"$(SRCROOT)/src\"",
+					"\"$(SRCROOT)/libo2em/allegrowrapper\"",
+					"\"$(SRCROOT)/libo2em/src\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1403,7 +1406,18 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		B39413812C04EACF002AA690 /* XCLocalSwiftPackageReference "../../PVEmulatorCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../PVEmulatorCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		B39413822C04EACF002AA690 /* PVEmulatorCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PVEmulatorCore;
+		};
 		B3E88CC12977B52800C90E86 /* PVLogging */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PVLogging;
