@@ -23,7 +23,7 @@
 		B306E10C2769F70A001DC52E /* OdysseyGameCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 941DFB2615B6425200C6552F /* OdysseyGameCore.m */; };
 		B306E10D2769F710001DC52E /* OdysseyGameCore.h in Headers */ = {isa = PBXBuildFile; fileRef = B5008DAD0E8BFB3E005AECAF /* OdysseyGameCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B306E1122769F730001DC52E /* libO2EM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B306E0D72769F6AB001DC52E /* libO2EM.a */; };
-		B3599B9D28F97E8F003BB7D2 /* PVSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3599B9C28F97E8F003BB7D2 /* PVSupport.framework */; };
+		B30E99172C6EF22500C1431E /* PVSupport in Frameworks */ = {isa = PBXBuildFile; productRef = B30E99162C6EF22500C1431E /* PVSupport */; };
 		B360FDD02769FF85009A0EB0 /* Core.plist in Resources */ = {isa = PBXBuildFile; fileRef = B306E0D12769F48E001DC52E /* Core.plist */; };
 		B36C50BC296F3FFE00921F85 /* wrapalleg.c in Sources */ = {isa = PBXBuildFile; fileRef = 94AD8A37199AD89200E6520F /* wrapalleg.c */; };
 		B36C50BD296F403400921F85 /* liballegrowrapper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B36C50BB296F3FF300921F85 /* liballegrowrapper.a */; };
@@ -162,8 +162,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B30E99172C6EF22500C1431E /* PVSupport in Frameworks */,
 				B36C50BD296F403400921F85 /* liballegrowrapper.a in Frameworks */,
-				B3599B9D28F97E8F003BB7D2 /* PVSupport.framework in Frameworks */,
 				B39413832C04EACF002AA690 /* PVEmulatorCore in Frameworks */,
 				B306E1122769F730001DC52E /* libO2EM.a in Frameworks */,
 				B3FB967A276DE0F000F7EDEE /* Foundation.framework in Frameworks */,
@@ -397,6 +397,7 @@
 			packageProductDependencies = (
 				B3E88CC12977B52800C90E86 /* PVLogging */,
 				B39413822C04EACF002AA690 /* PVEmulatorCore */,
+				B30E99162C6EF22500C1431E /* PVSupport */,
 			);
 			productName = PVO2EM;
 			productReference = B306E1052769F704001DC52E /* PVO2EM.framework */;
@@ -468,6 +469,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				B39413812C04EACF002AA690 /* XCLocalSwiftPackageReference "../../PVEmulatorCore" */,
+				B30E99152C6EF22500C1431E /* XCLocalSwiftPackageReference "../../PVSupport" */,
 			);
 			projectDirPath = "";
 			projectRoot = "";
@@ -1407,6 +1409,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
+		B30E99152C6EF22500C1431E /* XCLocalSwiftPackageReference "../../PVSupport" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../PVSupport;
+		};
 		B39413812C04EACF002AA690 /* XCLocalSwiftPackageReference "../../PVEmulatorCore" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../../PVEmulatorCore;
@@ -1414,6 +1420,10 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B30E99162C6EF22500C1431E /* PVSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PVSupport;
+		};
 		B39413822C04EACF002AA690 /* PVEmulatorCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PVEmulatorCore;
