@@ -14,4 +14,4 @@ FOUNDATION_EXPORT double PVO2EMVersionNumber;
 FOUNDATION_EXPORT const unsigned char PVO2EMVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <PVO2EM/PublicHeader.h>
-<PVO2EM/OdysseyGameCore.h>
+#import <PVO2EM/OdysseyGameCore.h>

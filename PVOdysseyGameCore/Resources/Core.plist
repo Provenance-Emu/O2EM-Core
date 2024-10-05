@@ -5,7 +5,7 @@
 	<key>PVCoreIdentifier</key>
 	<string>com.provenance.core.odyssey2</string>
 	<key>PVPrincipleClass</key>
-	<string>OdysseyGameCore</string>
+	<string>PVO2EM.PVOdysseyGameCore</string>
 	<key>PVSupportedSystems</key>
 	<array>
 		<string>com.provenance.odyssey2</string>

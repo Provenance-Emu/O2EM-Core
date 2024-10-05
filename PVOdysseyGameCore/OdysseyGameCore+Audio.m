@@ -1,6 +1,6 @@
 #import "OdysseyGameCore.h"
 
-@implementation OdysseyGameCore (Audio)
+@implementation OdysseyGameCoreBridge (Audio)
 #pragma mark - Audio
 
 - (NSUInteger)channelCount { return 1; }

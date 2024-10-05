@@ -38,6 +38,14 @@
 		B39413832C04EACF002AA690 /* PVEmulatorCore in Frameworks */ = {isa = PBXBuildFile; productRef = B39413822C04EACF002AA690 /* PVEmulatorCore */; };
 		B3E88CC22977B52800C90E86 /* PVLogging in Frameworks */ = {isa = PBXBuildFile; productRef = B3E88CC12977B52800C90E86 /* PVLogging */; };
 		B3FB967A276DE0F000F7EDEE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 089C1672FE841209C02AAC07 /* Foundation.framework */; };
+		B3FE6CD62C93D8A300792419 /* CoreOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FE6CD22C93D8A300792419 /* CoreOptions.swift */; };
+		B3FE6CD72C93D8A300792419 /* CorePlist-Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FE6CD42C93D8A300792419 /* CorePlist-Generated.swift */; };
+		B3FE6CD82C93D8A300792419 /* CorePlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FE6CD32C93D8A300792419 /* CorePlist.swift */; };
+		B3FE6CD92C93D8A300792419 /* PVOdysseyGameCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FE6CD52C93D8A300792419 /* PVOdysseyGameCore.swift */; };
+		B3FE6CDC2C93DC7700792419 /* PVCoreBridge in Frameworks */ = {isa = PBXBuildFile; productRef = B3FE6CDB2C93DC7700792419 /* PVCoreBridge */; };
+		B3FE6CDF2C93DC8B00792419 /* PVCoreObjCBridge in Frameworks */ = {isa = PBXBuildFile; productRef = B3FE6CDE2C93DC8B00792419 /* PVCoreObjCBridge */; };
+		B3FE6CE22C93DC9A00792419 /* PVPlists in Frameworks */ = {isa = PBXBuildFile; productRef = B3FE6CE12C93DC9A00792419 /* PVPlists */; };
+		B3FE6CE52C93DCA800792419 /* PVAudio in Frameworks */ = {isa = PBXBuildFile; productRef = B3FE6CE42C93DCA800792419 /* PVAudio */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +154,10 @@
 		B37EC37C289C4C5F0062FD31 /* OdysseyGameCore+Audio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OdysseyGameCore+Audio.m"; sourceTree = "<group>"; };
 		B37EC37D289C4C5F0062FD31 /* OdysseyGameCore+Saves.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OdysseyGameCore+Saves.m"; sourceTree = "<group>"; };
 		B3FB967B276DE0F900F7EDEE /* PVSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PVSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3FE6CD22C93D8A300792419 /* CoreOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreOptions.swift; sourceTree = "<group>"; };
+		B3FE6CD32C93D8A300792419 /* CorePlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorePlist.swift; sourceTree = "<group>"; };
+		B3FE6CD42C93D8A300792419 /* CorePlist-Generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePlist-Generated.swift"; sourceTree = "<group>"; };
+		B3FE6CD52C93D8A300792419 /* PVOdysseyGameCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVOdysseyGameCore.swift; sourceTree = "<group>"; };
 		B5008DAD0E8BFB3E005AECAF /* OdysseyGameCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OdysseyGameCore.h; sourceTree = "<group>"; };
 		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -163,7 +175,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B30E99172C6EF22500C1431E /* PVSupport in Frameworks */,
+				B3FE6CE52C93DCA800792419 /* PVAudio in Frameworks */,
 				B36C50BD296F403400921F85 /* liballegrowrapper.a in Frameworks */,
+				B3FE6CE22C93DC9A00792419 /* PVPlists in Frameworks */,
+				B3FE6CDF2C93DC8B00792419 /* PVCoreObjCBridge in Frameworks */,
+				B3FE6CDC2C93DC7700792419 /* PVCoreBridge in Frameworks */,
 				B39413832C04EACF002AA690 /* PVEmulatorCore in Frameworks */,
 				B306E1122769F730001DC52E /* libO2EM.a in Frameworks */,
 				B3FB967A276DE0F000F7EDEE /* Foundation.framework in Frameworks */,
@@ -316,6 +332,10 @@
 				B37EC379289C4C5E0062FD31 /* OdysseyGameCore+Options.m */,
 				B37EC37D289C4C5F0062FD31 /* OdysseyGameCore+Saves.m */,
 				B37EC37B289C4C5F0062FD31 /* OdysseyGameCore+Video.m */,
+				B3FE6CD22C93D8A300792419 /* CoreOptions.swift */,
+				B3FE6CD32C93D8A300792419 /* CorePlist.swift */,
+				B3FE6CD42C93D8A300792419 /* CorePlist-Generated.swift */,
+				B3FE6CD52C93D8A300792419 /* PVOdysseyGameCore.swift */,
 			);
 			path = PVOdysseyGameCore;
 			sourceTree = "<group>";
@@ -398,6 +418,10 @@
 				B3E88CC12977B52800C90E86 /* PVLogging */,
 				B39413822C04EACF002AA690 /* PVEmulatorCore */,
 				B30E99162C6EF22500C1431E /* PVSupport */,
+				B3FE6CDB2C93DC7700792419 /* PVCoreBridge */,
+				B3FE6CDE2C93DC8B00792419 /* PVCoreObjCBridge */,
+				B3FE6CE12C93DC9A00792419 /* PVPlists */,
+				B3FE6CE42C93DCA800792419 /* PVAudio */,
 			);
 			productName = PVO2EM;
 			productReference = B306E1052769F704001DC52E /* PVO2EM.framework */;
@@ -452,6 +476,7 @@
 					};
 					B306E1042769F704001DC52E = {
 						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1600;
 					};
 					B36C50C6296F448900921F85 = {
 						CreatedOnToolsVersion = 14.2;
@@ -470,6 +495,10 @@
 			packageReferences = (
 				B39413812C04EACF002AA690 /* XCLocalSwiftPackageReference "../../PVEmulatorCore" */,
 				B30E99152C6EF22500C1431E /* XCLocalSwiftPackageReference "../../PVSupport" */,
+				B3FE6CDA2C93DC7700792419 /* XCLocalSwiftPackageReference "../../PVCoreBridge" */,
+				B3FE6CDD2C93DC8B00792419 /* XCLocalSwiftPackageReference "../../PVCoreObjCBridge" */,
+				B3FE6CE02C93DC9A00792419 /* XCLocalSwiftPackageReference "../../PVPlists" */,
+				B3FE6CE32C93DCA800792419 /* XCLocalSwiftPackageReference "../../PVAudio" */,
 			);
 			projectDirPath = "";
 			projectRoot = "";
@@ -523,6 +552,10 @@
 				B36C50D4296F49BD00921F85 /* OdysseyGameCore+Audio.m in Sources */,
 				B306E10C2769F70A001DC52E /* OdysseyGameCore.m in Sources */,
 				B36C50D5296F49BD00921F85 /* OdysseyGameCore+Options.m in Sources */,
+				B3FE6CD62C93D8A300792419 /* CoreOptions.swift in Sources */,
+				B3FE6CD72C93D8A300792419 /* CorePlist-Generated.swift in Sources */,
+				B3FE6CD82C93D8A300792419 /* CorePlist.swift in Sources */,
+				B3FE6CD92C93D8A300792419 /* PVOdysseyGameCore.swift in Sources */,
 				B36C50D3296F49A600921F85 /* OdysseyGameCore+Controls.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -689,7 +722,6 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				OTHER_CFLAGS = "-D__LIBRETRO__=1";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -740,7 +772,6 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				OTHER_CFLAGS = "-D__LIBRETRO__=1";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -759,6 +790,7 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_COMMA = YES;
@@ -800,10 +832,11 @@
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/allegrowrapper\"",
 					"\"$(SRCROOT)/src\"",
+					"\"$(SRCROOT)/libo2em/allegrowrapper\"",
 				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -813,6 +846,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -823,6 +857,8 @@
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4,6";
 				TVOS_DEPLOYMENT_TARGET = 13.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -839,6 +875,7 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_COMMA = YES;
@@ -874,10 +911,11 @@
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/allegrowrapper\"",
 					"\"$(SRCROOT)/src\"",
+					"\"$(SRCROOT)/libo2em/allegrowrapper\"",
 				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -887,6 +925,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -897,6 +936,7 @@
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4,6";
 				TVOS_DEPLOYMENT_TARGET = 13.0;
 				VALIDATE_PRODUCT = YES;
@@ -1235,6 +1275,7 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_COMMA = YES;
@@ -1270,10 +1311,11 @@
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/allegrowrapper\"",
 					"\"$(SRCROOT)/src\"",
+					"\"$(SRCROOT)/libo2em/allegrowrapper\"",
 				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1283,6 +1325,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1293,6 +1336,7 @@
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4,6";
 				TVOS_DEPLOYMENT_TARGET = 13.0;
 				VALIDATE_PRODUCT = YES;
@@ -1343,7 +1387,6 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				OTHER_CFLAGS = "-D__LIBRETRO__=1";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1417,6 +1460,22 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../../PVEmulatorCore;
 		};
+		B3FE6CDA2C93DC7700792419 /* XCLocalSwiftPackageReference "../../PVCoreBridge" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../PVCoreBridge;
+		};
+		B3FE6CDD2C93DC8B00792419 /* XCLocalSwiftPackageReference "../../PVCoreObjCBridge" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../PVCoreObjCBridge;
+		};
+		B3FE6CE02C93DC9A00792419 /* XCLocalSwiftPackageReference "../../PVPlists" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../PVPlists;
+		};
+		B3FE6CE32C93DCA800792419 /* XCLocalSwiftPackageReference "../../PVAudio" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../PVAudio;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1431,6 +1490,22 @@
 		B3E88CC12977B52800C90E86 /* PVLogging */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PVLogging;
+		};
+		B3FE6CDB2C93DC7700792419 /* PVCoreBridge */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PVCoreBridge;
+		};
+		B3FE6CDE2C93DC8B00792419 /* PVCoreObjCBridge */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PVCoreObjCBridge;
+		};
+		B3FE6CE12C93DC9A00792419 /* PVPlists */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PVPlists;
+		};
+		B3FE6CE42C93DCA800792419 /* PVAudio */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PVAudio;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

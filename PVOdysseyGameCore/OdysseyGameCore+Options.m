@@ -1,6 +1,6 @@
 #import "OdysseyGameCore.h"
 
-@implementation OdysseyGameCore (Options)
+@implementation OdysseyGameCoreBridge (Options)
 #pragma mark - Options
 
 @end

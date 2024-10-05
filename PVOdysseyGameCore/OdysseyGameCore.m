@@ -3,9 +3,15 @@
  */
 
 #import "OdysseyGameCore.h"
-//#import "OEOdyssey2SystemResponderClient.h"
-@import PVSupport.Swift;
-//b#import <PVSupport/PVSupport-Swift.h>
+
+#import <Foundation/Foundation.h>
+
+@import PVSupport;
+@import PVEmulatorCore;
+@import PVCoreBridge;
+@import PVCoreObjCBridge;
+@import PVLoggingObjC;
+@import PVAudio;
 
 #if __has_include(<OpenGL/OpenGL.h>)
 #import <OpenGL/gl3.h>
@@ -48,8 +54,8 @@ extern void make_psw_debug(void);
 
 #import "libretro.h"
 
-@interface OdysseyGameCore () <PVOdyssey2SystemResponderClient>
-{
+@interface OdysseyGameCoreBridge () {
+    dispatch_queue_t audio_queue;
 }
 @end
 
@@ -324,7 +330,8 @@ static int load_cart(const char *file){
 //    return(0);
 //}
 
-@implementation OdysseyGameCore
+@implementation OdysseyGameCoreBridge
+@synthesize sampleRate;
 
 - (instancetype)init {
     if((self = [super init])) {
@@ -457,6 +464,8 @@ static int load_cart(const char *file){
 
             // TODO: There's more codes to add if you want 100%
         };
+        dispatch_queue_attr_t queueAttributes = dispatch_queue_attr_make_with_qos_class(DISPATCH_QUEUE_SERIAL, QOS_CLASS_USER_INTERACTIVE, 0);
+        audio_queue = dispatch_queue_create("com.provenance.audio", queueAttributes);
     }
     
     return self;
@@ -586,13 +595,19 @@ static int load_cart(const char *file){
     
     set_score(app_data.scoretype, app_data.scoreaddress, app_data.default_highscore);
     
+#warning TODO: Add a way to select game number 1-4
+    /// Select game 1
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self keyDown:RETROK_1];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2/60 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self keyUp:RETROK_1];
+        });
+    });
+    
     return YES;
 }
 
 - (void)executeFrameSkippingFrame: (BOOL) skip {
-//    if (self.controller1 || self.controller2) {
-//        [self pollControllers];
-//    }
     //run();
     cpu_exec();
 
@@ -600,12 +615,14 @@ static int load_cart(const char *file){
 
     // Convert 8u to 16s
     if(!skip) {
-        for(int i = 0; i < len; i++)
-        {
-            int16_t sample16 = (soundBuffer[i] - 128 ) << 8;
+        dispatch_async(audio_queue, ^{
+            for(int i = 0; i < len; i++)
+            {
+                int16_t sample16 = (soundBuffer[i] - 128 ) << 8;
 
-            [[self ringBufferAtIndex:0] write:&sample16 maxLength:2];
-        }
+                [[self ringBufferAtIndex:0] write:&sample16 size:2];
+            }
+        });
     }
 
     RLOOP=1;
@@ -631,5 +648,4 @@ static int load_cart(const char *file){
 //    RLOOP = 0;
 //    [super stopEmulation];
 //}
-
 @end

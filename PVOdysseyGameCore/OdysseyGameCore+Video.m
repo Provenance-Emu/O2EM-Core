@@ -15,7 +15,7 @@
 
 extern uint16_t *mbmp;
 
-@implementation OdysseyGameCore (Video)
+@implementation OdysseyGameCoreBridge (Video)
 
 #pragma mark Video
 

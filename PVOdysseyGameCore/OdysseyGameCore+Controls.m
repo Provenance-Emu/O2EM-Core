@@ -1,4 +1,7 @@
 #import "OdysseyGameCore.h"
+
+@import PVEmulatorCore;
+@import PVCoreObjCBridge;
 //#import "crc32.h"
 //#import "audio.h"
 //#import "vmachine.h"
@@ -18,7 +21,7 @@
 
 int joystick_data[2][5]={{0,0,0,0,0},{0,0,0,0,0}};
 
-@implementation OdysseyGameCore (Controls)
+@implementation OdysseyGameCoreBridge (Controls)
 
 #pragma mark - Input
 
