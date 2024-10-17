@@ -32,27 +32,55 @@
 #import "vmachine.h"
 #import "config.h"
 #import "vdc.h"
-
-// This include creates duplicate symbols due to statics in headers.
-// Forward declaring instead
-//#import "cpu.h"
-extern void init_cpu(void);
-extern void cpu_exec(void);
-extern void ext_IRQ(void);
-extern void tim_IRQ(void);
-extern void make_psw_debug(void);
-
-//#import "debug.h"
+#import "cpu.h"
 #import "keyboard.h"
 #import "voice.h"
 #import "vpp.h"
-//#import "types.h"
 
 #import "wrapalleg.h"
 
 #import "score.h"
 
 #import "libretro.h"
+
+void init_cpu(void);
+void cpu_exec(void);
+void ext_IRQ(void);
+void tim_IRQ(void);
+void make_psw_debug(void);
+
+// I'm putting these here and extern'ing them in O2EM cause I get a ton of duplicate symbols otherwise
+// I have no clue how OpenEMU avoided that @JoeMAtt
+Byte acc;        /* Accumulator */
+ADDRESS pc;        /* Program counter */
+long clk;        /* clock */
+
+Byte itimer;    /* Internal timer */
+Byte reg_pnt;    /* pointer to register bank */
+Byte timer_on;  /* 0=timer off/1=timer on */
+Byte count_on;  /* 0=count off/1=count on */
+Byte psw;        /* Processor status word */
+Byte sp;        /* Stack pointer (part of psw) */
+
+Byte p1;        /* I/O port 1 */
+Byte p2;         /* I/O port 2 */
+Byte xirq_pend; /* external IRQ pending */
+Byte tirq_pend; /* timer IRQ pending */
+Byte t_flag;    /* Timer flag */
+
+ADDRESS lastpc;
+ADDRESS A11;        /* PC bit 11 */
+ADDRESS A11ff;
+Byte bs;         /* Register Bank (part of psw) */
+Byte f0;            /* Flag Bit (part of psw) */
+Byte f1;            /* Flag Bit 1 */
+Byte ac;            /* Aux Carry (part of psw) */
+Byte cy;            /* Carry flag (part of psw) */
+Byte xirq_en;    /* external IRQ's enabled */
+Byte tirq_en;    /* Timer IRQ enabled */
+Byte irq_ex;        /* IRQ executing */
+
+int master_count;
 
 @interface OdysseyGameCoreBridge () {
     dispatch_queue_t audio_queue;
@@ -62,13 +90,12 @@ extern void make_psw_debug(void);
 //uint16_t mbmp[EMUWIDTH * EMUHEIGHT];
 //unsigned short int mbmp[TEX_WIDTH * TEX_HEIGHT];
 uint16_t *mbmp;
-short signed int SNDBUF[1024*2];
+//short signed int SNDBUF[1024*2];
 uint8_t soundBuffer[1056];
 int SND;
 int RLOOP=0;
 
 void update_joy(void){
-
 }
 
 int contax, o2flag, g74flag, c52flag, jopflag, helpflag;
@@ -214,8 +241,7 @@ static int load_cart(const char *file){
 		memcpy(&rom_table[0][1024], megarom + 4096*255 + 1024, 3072);
 		printf("MegaCart %ldK", l / 1024);
 		nb = 1;
-	} else if (((l % 3072) == 0))
-    {
+	} else if (((l % 3072) == 0)) {
 		app_data.three_k = 1;
 		nb = l/3072;
         
@@ -226,7 +252,6 @@ static int load_cart(const char *file){
 			}
 		}
 		printf("%dK",nb*3);
-        
 	} else {
         
 		nb = l/2048;
@@ -586,6 +611,7 @@ static int load_cart(const char *file){
         return NO;
     }
 	//if (app_data.voice) load_voice_samples(path2);
+    mbmp = (uint16_t*)malloc(TEX_WIDTH * TEX_HEIGHT * sizeof(uint16_t));
     
 	init_display();
     
@@ -609,20 +635,22 @@ static int load_cart(const char *file){
 
 - (void)executeFrameSkippingFrame: (BOOL) skip {
     //run();
-    cpu_exec();
+    if(RLOOP) {
+        cpu_exec();
 
-    int len = evblclk == EVBLCLK_NTSC ? 44100/60 : 44100/50;
+        int len = evblclk == EVBLCLK_NTSC ? 44100/60 : 44100/50;
 
-    // Convert 8u to 16s
-    if(!skip) {
-        dispatch_async(audio_queue, ^{
-            for(int i = 0; i < len; i++)
-            {
-                int16_t sample16 = (soundBuffer[i] - 128 ) << 8;
+        // Convert 8u to 16s
+        if(!skip) {
+            dispatch_async(audio_queue, ^{
+                for(int i = 0; i < len; i++)
+                {
+                    int16_t sample16 = (soundBuffer[i] - 128 ) << 8;
 
-                [[self ringBufferAtIndex:0] write:&sample16 size:2];
-            }
-        });
+                    [[self ringBufferAtIndex:0] write:&sample16 size:2];
+                }
+            });
+        }
     }
 
     RLOOP=1;
@@ -643,9 +671,8 @@ static int load_cart(const char *file){
     }
 }
 
-//- (void)stopEmulation
-//{
-//    RLOOP = 0;
-//    [super stopEmulation];
-//}
+- (void)stopEmulation {
+    RLOOP = 0;
+    [super stopEmulation];
+}
 @end

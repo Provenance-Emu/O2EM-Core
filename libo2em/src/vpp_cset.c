@@ -15,8 +15,8 @@
  */
 
 
-#import "types.h"
-#import "vpp_cset.h"
+#include "types.h"
+#include "vpp_cset.h"
 
 
 Byte vpp_cset[2][1280] = {

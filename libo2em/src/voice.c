@@ -15,13 +15,13 @@
  */
 
 
-#import <stdio.h>
-#import "vmachine.h"
-#import "cpu.h"
-#import "voice.h"
+#include <stdio.h>
+#include "vmachine.h"
+#include "cpu.h"
+#include "voice.h"
 
 #ifndef __LIBRETRO__
-#import "allegro.h"
+#include "allegro.h"
 #else
 #define SAMPLE signed short
 #endif

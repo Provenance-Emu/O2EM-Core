@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef __VPP_CSET_H
 #define __VPP_CSET_H
 

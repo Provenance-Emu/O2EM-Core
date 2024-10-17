@@ -40,7 +40,8 @@ extern uint16_t *mbmp;
 - (const void *)getVideoBufferWithHint:(void *)hint {
     if(!hint) {
         if(!mbmp) {
-            hint = mbmp = (uint16_t*)malloc(TEX_WIDTH * TEX_HEIGHT * sizeof(uint16_t));
+            mbmp = (uint16_t*)malloc(TEX_WIDTH * TEX_HEIGHT * sizeof(uint16_t));
+            hint = mbmp;
         }
     } else {
         mbmp = hint;

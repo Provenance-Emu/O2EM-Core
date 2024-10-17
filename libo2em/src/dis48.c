@@ -4,13 +4,13 @@
  */
 
 
-#import <ctype.h>
-#import <stdio.h>
-#import <stdlib.h>
-#import <string.h>
-#import "types.h"
-#import "table.h"
-#import "debug.h"
+#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "types.h"
+#include "table.h"
+#include "debug.h"
 
 #define BIOSLEN 1024
 #define MAXLEN 8192

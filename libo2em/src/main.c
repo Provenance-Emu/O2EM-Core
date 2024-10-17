@@ -10,38 +10,38 @@
  *   http://o2em.sourceforge.net
  *
  */
-#import <dirent.h>
-#import <stdio.h>
-#import <stdlib.h>
-#import <string.h>
-#import <ctype.h>
-#import <time.h>
-#import "crc32.h"
-#import "audio.h"
-#import "vmachine.h"
-#import "config.h"
-#import "vdc.h"
-#import "cpu.h"
-#import "debug.h"
-#import "keyboard.h"
-#import "voice.h"
+#include <dirent.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <time.h>
+#include "crc32.h"
+#include "audio.h"
+#include "vmachine.h"
+#include "config.h"
+#include "vdc.h"
+#include "cpu.h"
+#include "debug.h"
+#include "keyboard.h"
+#include "voice.h"
 
 #ifndef __LIBRETRO__
-#import "allegro.h"
+#include "allegro.h"
 #else
-#import "wrapalleg.h"
+#include "wrapalleg.h"
 
 #ifdef AND
 #warning android log
-#import <android/log.h>
+#include <android/log.h>
 #define printf(...) __android_log_print(ANDROID_LOG_DEBUG, "TAG", __VA_ARGS__)
 #endif
 
 #endif
 
-#import "score.h"
+#include "score.h"
 #ifdef ALLEGRO_WINDOWS
-#import "winalleg.h"
+#include "winalleg.h"
 #endif
 static char bios[MAXC], scshot[MAXC], xrom[MAXC], romdir[MAXC], xbios[MAXC], 
        biosdir[MAXC], arkivo[MAXC][MAXC], biossux[MAXC], romssux[MAXC], 

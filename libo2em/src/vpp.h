@@ -1,4 +1,3 @@
-#pragma once
 #ifndef __VPP_H
 #define __VPP_H
 

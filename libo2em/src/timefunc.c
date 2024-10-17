@@ -15,19 +15,19 @@
  */
 
 
-#import <time.h>
+#include <time.h>
 
 #ifndef __LIBRETRO__
-#import "allegro.h"
+#include "allegro.h"
 #endif
 
 #ifdef ALLEGRO_WINDOWS
-#import "winalleg.h"
+#include "winalleg.h"
 #elif defined(ALLEGRO_UNIX) || defined(ALLEGRO_LINUX)
-#import <sys/time.h>
-#import <sys/times.h>
+#include <sys/time.h>
+#include <sys/times.h>
 #endif
-#import "timefunc.h"
+#include "timefunc.h"
 
 #ifndef __LIBRETRO__
 
@@ -104,7 +104,7 @@ long gettimeticks(void){
 
 #else 
 //RETRO
-#import <sys/time.h>
+#include <sys/time.h>
 #define LONG_LONG  long long
 long gettimeticks(void){
 	struct timeval tv;

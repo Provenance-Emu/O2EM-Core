@@ -5,14 +5,14 @@
   The list of all available drivers. Drivers have to be included here to be
   recognized by the executable.
 
-  To save some typing, we use a hack here. This file is recursively #importd
+  To save some typing, we use a hack here. This file is recursively #included
   twice, with different definitions of the DRIVER() macro. The first one
   declares external references to the drivers; the second one builds an array
   storing all the drivers.
 
 ******************************************************************************/
 
-#import "driver.h"
+#include "driver.h"
 
 
 #ifndef DRIVER_RECURSIVE
@@ -54,7 +54,7 @@ const struct GameDriver *drivers[] =
 /* step 1: declare all external references */
 #define DRIVER(NAME) extern struct GameDriver driver_##NAME;
 #define TESTDRIVER(NAME) extern struct GameDriver driver_##NAME;
-#import "system.c"
+#include "system.c"
 
 /* step 2: define the drivers[] array */
 #undef DRIVER
@@ -68,7 +68,7 @@ const struct GameDriver *drivers[] =
 #endif
 const struct GameDriver *drivers[] =
 {
-#import "system.c"
+#include "system.c"
   0             /* end of array */
 };
 

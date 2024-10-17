@@ -1,4 +1,3 @@
-#pragma once
 #ifndef __CONFIG_H
 #define __CONFIG_H
 
@@ -12,3 +11,4 @@
 #define ROM_UNKNOWN	99
 
 #endif
+

@@ -14,8 +14,8 @@
  */
 
 
-#import "types.h"
-#import "cset.h"
+#include "types.h"
+#include "cset.h"
 
 
 Byte cset[512]= {

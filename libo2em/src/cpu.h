@@ -1,8 +1,7 @@
-#pragma once
 #ifndef CPU_H
 #define CPU_H
 
-//#import "types.h"
+#include "types.h"
 
 extern Byte acc;		/* Accumulator */
 extern ADDRESS pc;		/* Program counter */
@@ -60,6 +59,7 @@ extern Byte tirq_en;    /* Timer IRQ enabled */
 extern Byte irq_ex;        /* IRQ executing */
 
 extern int master_count;
+
 
 #endif  /* CPU_H */
 

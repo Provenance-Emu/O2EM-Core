@@ -1,4 +1,3 @@
-#pragma once
 #ifndef __SCORE_H
 #define __SCORE_H
 

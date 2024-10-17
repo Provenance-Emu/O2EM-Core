@@ -24,10 +24,10 @@
 		B306E10D2769F710001DC52E /* OdysseyGameCore.h in Headers */ = {isa = PBXBuildFile; fileRef = B5008DAD0E8BFB3E005AECAF /* OdysseyGameCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B306E1122769F730001DC52E /* libO2EM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B306E0D72769F6AB001DC52E /* libO2EM.a */; platformFilters = (ios, maccatalyst, tvos, watchos, ); };
 		B30E99172C6EF22500C1431E /* PVSupport in Frameworks */ = {isa = PBXBuildFile; productRef = B30E99162C6EF22500C1431E /* PVSupport */; };
+		B350221F2CC0F29A00922432 /* debug.c in Sources */ = {isa = PBXBuildFile; fileRef = 94AD8A50199AD89200E6520F /* debug.c */; };
 		B360FDD02769FF85009A0EB0 /* Core.plist in Resources */ = {isa = PBXBuildFile; fileRef = B306E0D12769F48E001DC52E /* Core.plist */; };
 		B36C50BC296F3FFE00921F85 /* wrapalleg.c in Sources */ = {isa = PBXBuildFile; fileRef = 94AD8A37199AD89200E6520F /* wrapalleg.c */; };
 		B36C50BD296F403400921F85 /* liballegrowrapper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B36C50BB296F3FF300921F85 /* liballegrowrapper.a */; platformFilters = (ios, maccatalyst, tvos, watchos, ); };
-		B36C50CF296F44A100921F85 /* table.c in Sources */ = {isa = PBXBuildFile; fileRef = 94AD8A67199AD89200E6520F /* table.c */; };
 		B36C50D0296F44A100921F85 /* dis48.c in Sources */ = {isa = PBXBuildFile; fileRef = 94AD8A52199AD89200E6520F /* dis48.c */; };
 		B36C50D1296F44A500921F85 /* table.c in Sources */ = {isa = PBXBuildFile; fileRef = 94AD8A67199AD89200E6520F /* table.c */; };
 		B36C50D3296F49A600921F85 /* OdysseyGameCore+Controls.m in Sources */ = {isa = PBXBuildFile; fileRef = B37EC37A289C4C5F0062FD31 /* OdysseyGameCore+Controls.m */; };
@@ -528,6 +528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B306E0EB2769F6BF001DC52E /* vpp.c in Sources */,
+				B350221F2CC0F29A00922432 /* debug.c in Sources */,
 				B306E0E22769F6BF001DC52E /* audio.c in Sources */,
 				B36C50D1296F44A500921F85 /* table.c in Sources */,
 				B306E0E02769F6BF001DC52E /* cset.c in Sources */,
@@ -573,7 +574,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B36C50D0296F44A100921F85 /* dis48.c in Sources */,
-				B36C50CF296F44A100921F85 /* table.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

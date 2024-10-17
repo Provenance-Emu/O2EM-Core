@@ -1,4 +1,3 @@
-#pragma once
 #ifndef __AUDIO_H
 #define __AUDIO_H
 
@@ -12,4 +11,7 @@ void mute_audio(void);
 extern int sound_IRQ;
 extern FILE *sndlog;
 
+
 #endif
+
+

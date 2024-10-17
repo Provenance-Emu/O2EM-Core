@@ -1,4 +1,3 @@
-#pragma once
 #ifndef __CRC32_H
 #define __CRC32_H
 

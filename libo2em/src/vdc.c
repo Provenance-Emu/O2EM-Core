@@ -15,28 +15,28 @@
  */
 
 
-#import <stdlib.h>
-#import <string.h>
-#import <stdio.h>
-#import "types.h"
-#import "vmachine.h"
-#import "config.h"
-#import "keyboard.h"
-#import "cset.h"
-#import "timefunc.h"
-//#import "cpu.h"
-#import "vpp.h"
-#import "vdc.h"
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include "types.h"
+#include "vmachine.h"
+#include "config.h"
+#include "keyboard.h"
+#include "cset.h"
+#include "timefunc.h"
+#include "cpu.h"
+#include "vpp.h"
+#include "vdc.h"
 
 #ifndef __LIBRETRO__
-#import "allegro.h"
+#include "allegro.h"
 #else 
-#import "libretro.h"
-#import "wrapalleg.h"
+#include "libretro.h"
+#include "wrapalleg.h"
 #endif
 
-#import "audio.h"
-#import "voice.h"
+#include "audio.h"
+#include "voice.h"
 
 
 #define COL_SP0   0x01
