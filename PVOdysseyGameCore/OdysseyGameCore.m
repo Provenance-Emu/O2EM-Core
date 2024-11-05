@@ -356,7 +356,7 @@ static int load_cart(const char *file){
 //}
 
 @implementation OdysseyGameCoreBridge
-@synthesize sampleRate;
+@synthesize audioSampleRate;
 
 - (instancetype)init {
     if((self = [super init])) {
