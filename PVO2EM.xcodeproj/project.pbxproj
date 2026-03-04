@@ -36,6 +36,7 @@
 		B36C50D6296F49BD00921F85 /* OdysseyGameCore+Video.m in Sources */ = {isa = PBXBuildFile; fileRef = B37EC37B289C4C5F0062FD31 /* OdysseyGameCore+Video.m */; };
 		B36C50D7296F49BD00921F85 /* OdysseyGameCore+Saves.m in Sources */ = {isa = PBXBuildFile; fileRef = B37EC37D289C4C5F0062FD31 /* OdysseyGameCore+Saves.m */; };
 		B39413832C04EACF002AA690 /* PVEmulatorCore in Frameworks */ = {isa = PBXBuildFile; productRef = B39413822C04EACF002AA690 /* PVEmulatorCore */; };
+		B3A483362F569B47004A995B /* PVPrimitives in Frameworks */ = {isa = PBXBuildFile; productRef = B3A483352F569B47004A995B /* PVPrimitives */; };
 		B3E88CC22977B52800C90E86 /* PVLogging in Frameworks */ = {isa = PBXBuildFile; productRef = B3E88CC12977B52800C90E86 /* PVLogging */; };
 		B3FB967A276DE0F000F7EDEE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 089C1672FE841209C02AAC07 /* Foundation.framework */; };
 		B3FE6CD62C93D8A300792419 /* CoreOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FE6CD22C93D8A300792419 /* CoreOptions.swift */; };
@@ -183,6 +184,7 @@
 				B39413832C04EACF002AA690 /* PVEmulatorCore in Frameworks */,
 				B306E1122769F730001DC52E /* libO2EM.a in Frameworks */,
 				B3FB967A276DE0F000F7EDEE /* Foundation.framework in Frameworks */,
+				B3A483362F569B47004A995B /* PVPrimitives in Frameworks */,
 				B3E88CC22977B52800C90E86 /* PVLogging in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +424,7 @@
 				B3FE6CDE2C93DC8B00792419 /* PVCoreObjCBridge */,
 				B3FE6CE12C93DC9A00792419 /* PVPlists */,
 				B3FE6CE42C93DCA800792419 /* PVAudio */,
+				B3A483352F569B47004A995B /* PVPrimitives */,
 			);
 			productName = PVO2EM;
 			productReference = B306E1052769F704001DC52E /* PVO2EM.framework */;
@@ -499,6 +502,7 @@
 				B3FE6CDD2C93DC8B00792419 /* XCLocalSwiftPackageReference "../../PVCoreObjCBridge" */,
 				B3FE6CE02C93DC9A00792419 /* XCLocalSwiftPackageReference "../../PVPlists" */,
 				B3FE6CE32C93DCA800792419 /* XCLocalSwiftPackageReference "../../PVAudio" */,
+				B3A483342F569B47004A995B /* XCLocalSwiftPackageReference "../../PVPrimitives" */,
 			);
 			projectDirPath = "";
 			projectRoot = "";
@@ -1532,6 +1536,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../../PVEmulatorCore;
 		};
+		B3A483342F569B47004A995B /* XCLocalSwiftPackageReference "../../PVPrimitives" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../PVPrimitives;
+		};
 		B3FE6CDA2C93DC7700792419 /* XCLocalSwiftPackageReference "../../PVCoreBridge" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../../PVCoreBridge;
@@ -1558,6 +1566,10 @@
 		B39413822C04EACF002AA690 /* PVEmulatorCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PVEmulatorCore;
+		};
+		B3A483352F569B47004A995B /* PVPrimitives */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PVPrimitives;
 		};
 		B3E88CC12977B52800C90E86 /* PVLogging */ = {
 			isa = XCSwiftPackageProductDependency;
