@@ -18,5 +18,11 @@
 	<string>1.18.1</string>
 	<key>PVDisabled</key>
 	<false/>
+	<key>PVLicenseName</key>
+	<string>Artistic-2.0</string>
+	<key>PVLicenseURL</key>
+	<string>https://github.com/OpenEmu/O2EM-Core/blob/HEAD/COPYING</string>
+	<key>PVCopyright</key>
+	<string>Copyright © 1997-2016 OpenEmu Team, Daniel Boris, Andre de la Rocha</string>
 </dict>
 </plist>
