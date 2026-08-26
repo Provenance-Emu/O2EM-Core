@@ -14,4 +14,10 @@ FOUNDATION_EXPORT double PVO2EMVersionNumber;
 FOUNDATION_EXPORT const unsigned char PVO2EMVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <PVO2EM/PublicHeader.h>
+// The framework form only resolves in the Xcode build; SwiftPM lays public headers
+// out flat, so fall back to the sibling path there.
+#if __has_include(<PVO2EM/OdysseyGameCore.h>)
 #import <PVO2EM/OdysseyGameCore.h>
+#else
+#import "OdysseyGameCore.h"
+#endif

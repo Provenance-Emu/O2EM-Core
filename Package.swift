@@ -20,6 +20,7 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../../PVCoreBridge"),
+        .package(path: "../../PVCoreObjCBridge"),
         .package(path: "../../PVEmulatorCore"),
         .package(path: "../../PVSupport"),
         .package(path: "../../PVAudio"),
@@ -33,13 +34,22 @@ let package = Package(
                 "libo2em",
                 "PVEmulatorCore",
                 "PVCoreBridge",
+                "PVCoreObjCBridge",
+                "PVAudio",
+                .product(name: "RingBuffer", package: "PVAudio"),
                 "PVSupport",
                 "PVObjCUtils"
             ],
             path: "PVOdysseyGameCore",
-            exclude: Sources.swift + ["Resources"],
+            /* include/PVO2EM.h is the Xcode framework umbrella header; it does
+             * `#import <PVO2EM/OdysseyGameCore.h>`, which has no meaning under SPM's
+             * flat public-header layout and breaks the generated module. */
+            exclude: Sources.swift + ["Resources", "include"],
             sources: Sources.bridge,
-            publicHeadersPath: "include",
+            /* "." rather than "include": OdysseyGameCore.h declares the bridge class
+             * the Swift target subclasses, and it lives beside the .m files, not in
+             * include/ (which holds only the framework umbrella header). */
+            publicHeadersPath: ".",
             cSettings: [
                 .define("INLINE", to: "inline"),
                 .define("USE_STRUCTS", to: "1"),
@@ -56,6 +66,7 @@ let package = Package(
             dependencies: [
                 "PVEmulatorCore",
                 "PVCoreBridge",
+                "PVCoreObjCBridge",
                 "PVLogging",
                 "PVAudio",
                 "PVSupport",

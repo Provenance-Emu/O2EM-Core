@@ -19,6 +19,12 @@ import PVLogging
 import PVAudio
 import PVEmulatorCore
 import PVCoreObjCBridge
+/* Xcode builds the ObjC bridge and this file into one framework target, so it needs
+ * no import there. SPM cannot express a mixed-language target, so under SwiftPM the
+ * bridge is the separate `PVO2EM` module. SWIFT_PACKAGE is only defined by SwiftPM. */
+#if SWIFT_PACKAGE
+import PVO2EM
+#endif
 
 @objc
 @objcMembers

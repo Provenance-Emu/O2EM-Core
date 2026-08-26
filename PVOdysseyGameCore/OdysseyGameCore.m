@@ -12,6 +12,12 @@
 @import PVCoreObjCBridge;
 @import PVLoggingObjC;
 @import PVAudio;
+/* RingBufferProtocol (write:size:) lives in PVAudio's RingBuffer target. The Xcode
+ * framework build sees it through PVAudio's umbrella; SwiftPM needs it imported
+ * explicitly, and only SwiftPM links the RingBuffer product. */
+#if SWIFT_PACKAGE
+@import RingBuffer;
+#endif
 
 #if __has_include(<OpenGL/OpenGL.h>)
 #import <OpenGL/gl3.h>

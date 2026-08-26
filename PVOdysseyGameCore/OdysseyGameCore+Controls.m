@@ -1,6 +1,7 @@
 #import "OdysseyGameCore.h"
 
 @import PVEmulatorCore;
+@import PVCoreBridge;
 @import PVCoreObjCBridge;
 //#import "crc32.h"
 //#import "audio.h"
